@@ -348,6 +348,74 @@ img { max-width: 100%; display: block; }
 .page-head .intro { color: var(--ink-soft); max-width: 68ch; margin-top: 12px; }
 
 .article-list { padding: 28px 0 56px; }
+
+/* Two-column variant: article list left, subcategory nav right. */
+.listing-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: 56px;
+  align-items: start;
+  padding-top: 32px;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.listing-grid .article-list { padding: 0 0 56px; }
+.listing-grid .article-list article { max-width: none; }
+.listing-grid .article-list article:first-child { padding-top: 0; }
+
+.branch-sections {
+  position: sticky; top: 92px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--green);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.branch-sections h2 {
+  font-family: var(--font-display);
+  font-size: 1.12rem; font-weight: 600; line-height: 1.3;
+  margin: 4px 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.branch-sections ul { list-style: none; margin: 0; padding: 0; }
+.branch-sections li {
+  border-bottom: 1px solid var(--line);
+  font-size: .95rem; line-height: 1.35;
+}
+.branch-sections li:last-child { border-bottom: none; }
+.branch-sections a,
+.branch-sections li > span {
+  display: block;
+  padding: 11px 0 11px 16px;
+  position: relative;
+  color: var(--ink);
+}
+.branch-sections a::before,
+.branch-sections li > span::before {
+  content: "";
+  position: absolute; left: 0; top: 50%;
+  width: 5px; height: 5px; margin-top: -6px;
+  border-right: 1.5px solid var(--khaki);
+  border-top: 1.5px solid var(--khaki);
+  transform: rotate(45deg);
+}
+.branch-sections a:hover { color: var(--green-dark); }
+.branch-sections a:hover::before { border-color: var(--green); }
+.branch-sections .is-current > span { font-weight: 600; color: var(--green-dark); }
+.branch-sections .is-current > span::before { border-color: var(--green); }
+.branch-sections-count {
+  display: block;
+  font-size: .76rem; color: var(--khaki);
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+@media (max-width: 860px) {
+  .listing-grid { grid-template-columns: 1fr; gap: 32px; }
+  .branch-sections { position: static; order: -1; }
+}
+
 .article-list article {
   padding: 26px 0;
   border-bottom: 1px solid var(--line);

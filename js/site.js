@@ -195,6 +195,31 @@
     }).join("");
   }
 
+  /* ---------- subcategory sidebar (branch pages only) ---------- */
+  function buildBranchAside() {
+    var el = document.querySelector("#branch-sections");
+    if (!el) return;
+
+    var branch = branchById[el.getAttribute("data-branch")];
+    if (!branch) return;
+
+    // Marks the section the visitor is currently inside, when this sidebar is
+    // rendered on a section page rather than the branch landing page.
+    var currentSection = el.getAttribute("data-current") || "";
+
+    el.innerHTML = branch.sections.map(function (s) {
+      var count = articlesIn(branch.id, s.id).length;
+      var label = count === 1 ? "artykuł" : (count >= 2 && count <= 4 ? "artykuły" : "artykułów");
+      var inner =
+        "<span class=\"branch-sections-name\">" + esc(s.name) + "</span>" +
+        '<span class="branch-sections-count">' + count + " " + label + "</span>";
+      if (s.id === currentSection) {
+        return '<li class="is-current"><span aria-current="page">' + inner + "</span></li>";
+      }
+      return '<li><a href="' + SITE_BASE + s.url + '">' + inner + "</a></li>";
+    }).join("");
+  }
+
   /* ---------- article page sidebar (spis treści działu) ---------- */
   function buildArticleAside() {
     var asideEl = document.querySelector("#section-toc");
@@ -254,5 +279,6 @@
   buildNav();
   buildHome();
   buildListing();
+  buildBranchAside();
   buildArticleAside();
 })();

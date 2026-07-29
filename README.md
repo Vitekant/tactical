@@ -48,6 +48,11 @@ Dopisz wpis do `sections` właściwej gałęzi w `BRANCHES` (`data/articles.js`)
 i utwórz odpowiadającą mu stronę w `dzialy/` — wystarczy skopiować istniejącą
 i podmienić `data-branch` / `data-section` w `<div id="article-listing">`.
 
+Boczna lista działów renderuje się automatycznie z `BRANCHES` — w skopiowanej
+stronie ustaw `data-branch` na `<ul id="branch-sections">`, a `data-current`
+na id bieżącego działu (na stronie gałęzi zostaw puste, nic nie będzie
+podświetlone). Liczniki artykułów liczą się same.
+
 ## Uwaga
 
 - Teksty artykułów to **szkice do weryfikacji merytorycznej** przez Piotra —
