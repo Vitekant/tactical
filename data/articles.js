@@ -15,8 +15,8 @@
      branch  – id gałęzi (musi pasować do BRANCHES)
      section – id działu w tej gałęzi (musi pasować do sections danej gałęzi)
 
-   "Aktualności" to nie osobny typ treści — to po prostu najnowsze artykuły
-   (sortowane po dacie). Nie trzeba nic dodatkowo oznaczać.
+   Blok "Najnowsze artykuły" na stronie głównej bierze artykuły o najnowszej
+   dacie — nie trzeba nic dodatkowo oznaczać.
    ============================================================ */
 
 const BRANCHES = [

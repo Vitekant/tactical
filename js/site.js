@@ -59,8 +59,8 @@
   }
 
   /* ---------- nav ----------
-     Two dropdown branches (sections, not individual articles), plus a plain
-     "Aktualności" link and an outbound "Pomoc prawna" link. */
+     Two dropdown branches (sections, not individual articles), plus an
+     outbound "Pomoc prawna" link. */
   function buildNav() {
     var navList = document.querySelector("#nav-list");
     if (!navList) return;
@@ -81,12 +81,7 @@
       navList.appendChild(li);
     });
 
-    // Plain links — no dropdown, so they get .nav-plain to suppress the caret.
-    var news = document.createElement("li");
-    news.className = "nav-plain";
-    news.innerHTML = '<a href="' + SITE_BASE + 'aktualnosci.html">Aktualności</a>';
-    navList.appendChild(news);
-
+    // Plain link — no dropdown, so it gets .nav-plain to suppress the caret.
     var help = document.createElement("li");
     help.className = "nav-plain";
     help.innerHTML = '<a href="' + LAW_FIRM_URL + '" rel="noopener">Pomoc prawna</a>';

@@ -154,7 +154,7 @@ img { max-width: 100%; display: block; }
 }
 .dropdown .dropdown-all { justify-content: flex-start; }
 
-/* Plain nav items (Aktualności, Pomoc prawna) — no dropdown, no caret. */
+/* Plain nav item (Pomoc prawna) — no dropdown, no caret. */
 .nav > ul > li.nav-plain > a::after { display: none; }
 
 .nav-toggle {
@@ -234,14 +234,6 @@ img { max-width: 100%; display: block; }
   padding: 20px 22px 8px;
 }
 .side-list--boxed h2 { border-bottom-color: var(--line); }
-.side-more {
-  display: inline-block;
-  margin-top: 14px;
-  font-size: .78rem; font-weight: 600;
-  letter-spacing: .08em; text-transform: uppercase;
-  color: var(--khaki);
-}
-.side-more:hover { color: var(--green-dark); }
 
 .side-list h2 {
   font-size: .78rem; font-weight: 600;

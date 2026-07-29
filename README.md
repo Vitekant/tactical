@@ -6,7 +6,6 @@ Poradnik prawny dla żołnierzy i funkcjonariuszy — statyczna strona pod GitHu
 
 ```
 index.html                  strona główna (lead + najnowsze + losowe polecane)
-aktualnosci.html            wszystkie artykuły wg daty publikacji
 dzialy/*.html               strony działów i poddziałów
 artykuly/*.html             artykuły (pełna treść w HTML — SEO)
 data/articles.js            JEDYNE źródło: struktura menu + lista artykułów
@@ -23,10 +22,12 @@ Serwis dzieli się na dwie gałęzie, każda z własnymi działami:
 | `sily-zbrojne`     | etap służby | `przed`, `w-trakcie`, `po-zakonczeniu`                                 |
 | `sluzby-mundurowe` | formacja    | `policja`, `straz-graniczna`, `sluzba-wiezienna`, `skw-sww`, `inne`    |
 
-Pozostałe pozycje w menu to zwykłe linki (bez rozwijania):
+Ostatnia pozycja w menu to zwykły link (bez rozwijania):
 
-- **Aktualności** → `aktualnosci.html` (najnowsze artykuły, bez osobnego typu treści)
 - **Pomoc prawna** → `https://adwokatmodzelewski.pl/`
+
+Najnowsze artykuły pokazuje blok „Najnowsze artykuły" na stronie głównej —
+nie ma osobnej podstrony z listą chronologiczną.
 
 ## Dodanie artykułu
 
@@ -39,7 +40,7 @@ Pozostałe pozycje w menu to zwykłe linki (bez rozwijania):
    z polami `branch` i `section` zgodnymi z tabelą powyżej.
 4. Dodaj URL do `sitemap.xml`.
 
-„Aktualności" nie wymagają oznaczania — to po prostu artykuły o najnowszej dacie.
+Kolejność na stronie głównej wynika z pola `date` — nic nie trzeba oznaczać.
 
 ## Dodanie nowego działu
 
