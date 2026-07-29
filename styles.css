@@ -235,6 +235,12 @@ img { max-width: 100%; display: block; }
 }
 .side-list--boxed h2 { border-bottom-color: var(--line); }
 
+/* "Może Cię zainteresować": Jekyll wypisuje wszystkich kandydatów, a wybiera
+   js/site.js. Zanim skrypt zadziała (albo gdy JS jest wyłączony) pokazujemy
+   tylko trzy pierwsze — bez tego lista mignęłaby w całości. */
+.side-list--pick article:nth-child(n+4) { display: none; }
+.side-list--pick.is-picked article { display: block; }
+
 .side-list h2 {
   font-size: .78rem; font-weight: 600;
   letter-spacing: .12em; text-transform: uppercase;

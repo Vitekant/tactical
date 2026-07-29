@@ -66,18 +66,33 @@ title: "Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy"
         </aside>
 
         {%- comment -%}
-          "Może Cię zainteresować" — trzy starsze wpisy (poza najnowszą trójką).
-          Jekyll buduje stronę raz, więc zamiast losowania przy każdym wejściu
-          bierzemy kolejne pozycje z listy; zmieniają się przy każdej publikacji.
+          "Może Cię zainteresować".
+
+          Jekyll wypisuje TU WSZYSTKICH kandydatów (poza najnowszą trójką),
+          każdego z `data-sections`. Skrypt js/site.js zostawia widoczne trzy:
+          najpierw te powiązane tematycznie z artykułami z "Najnowszych",
+          a wśród równorzędnych losuje — dzięki temu zestaw zmienia się przy
+          kolejnych wejściach, ale nie jest przypadkowy.
+
+          Bez JS (i dla robotów) widoczne pozostają pierwsze trzy pozycje —
+          patrz reguła .side-list--pick article:nth-child(n+4) w styles.css.
         {%- endcomment -%}
-        {%- assign rest = latest | slice: 3, 3 -%}
+        {%- assign rest = latest | slice: 3, 100 -%}
         {%- if rest.size == 0 %}{% assign rest = latest %}{% endif -%}
         {%- if rest.size > 0 %}
-        <aside class="side-list side-list--boxed">
+        {%- comment -%} Działy z trzech najnowszych wpisów — punkt odniesienia dla podobieństwa. {%- endcomment -%}
+        {%- assign seed_ids = "" -%}
+        {%- for a in latest limit: 3 -%}
+          {%- for sid in a.sections -%}{%- assign seed_ids = seed_ids | append: sid | append: " " -%}{%- endfor -%}
+        {%- endfor -%}
+        <aside class="side-list side-list--boxed side-list--pick"
+               id="home-pick"
+               data-pick="3"
+               data-seed="{{ seed_ids | strip }}">
           <h2>Może Cię zainteresować</h2>
           <div>
             {%- for a in rest %}
-            <article>
+            <article data-sections="{{ a.sections | join: ' ' }}">
               <h3><a href="{{ a.url | relative_url }}">{{ a.title }}</a></h3>
               <div class="meta">
                 {%- assign a_first = a.sections | first -%}
