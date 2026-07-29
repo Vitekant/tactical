@@ -364,8 +364,11 @@ img { max-width: 100%; display: block; }
   padding-top: 32px;
   margin-top: 28px;
   border-top: 1px solid var(--line);
+  /* Odstęp przed paskiem CTA musi być na siatce, nie na lewej kolumnie —
+     inaczej znika, gdy to boczna lista działów jest wyższa od listy wpisów. */
+  padding-bottom: 56px;
 }
-.listing-grid .article-list { padding: 0 0 56px; }
+.listing-grid .article-list { padding: 0; }
 .listing-grid .article-list article { max-width: none; }
 .listing-grid .article-list article:first-child { padding-top: 0; }
 
@@ -452,6 +455,9 @@ img { max-width: 100%; display: block; }
   gap: 56px;
   align-items: start;
   margin-top: 24px;
+  /* Jak w .listing-grid — odstęp na siatce, żeby wysoki spis treści
+     nie dotykał paska CTA. */
+  padding-bottom: 32px;
 }
 .article-body {
   max-width: 700px;
