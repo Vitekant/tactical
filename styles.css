@@ -143,6 +143,19 @@ img { max-width: 100%; display: block; }
 .dropdown .dropdown-empty {
   padding: 10px 18px; font-size: .9rem; color: var(--khaki);
 }
+.dropdown a { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.dropdown .dropdown-count {
+  font-size: .72rem; font-weight: 600;
+  color: var(--khaki);
+  background: var(--green-tint);
+  border-radius: 999px;
+  padding: 1px 8px;
+  flex: none;
+}
+.dropdown .dropdown-all { justify-content: flex-start; }
+
+/* Plain nav items (Aktualności, Pomoc prawna) — no dropdown, no caret. */
+.nav > ul > li.nav-plain > a::after { display: none; }
 
 .nav-toggle {
   display: none;
@@ -183,25 +196,52 @@ img { max-width: 100%; display: block; }
   color: var(--khaki);
 }
 
-.featured {
-  padding: 56px 0 48px;
+/* ---------- homepage ---------- */
+.home {
+  padding: 56px 0 56px;
   border-bottom: 1px solid var(--line);
 }
-.featured-grid {
+.home-grid {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
   gap: 56px;
+  align-items: start;
 }
-.featured h1 {
+.home-lead h1 {
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 4vw, 2.7rem);
   font-weight: 600; line-height: 1.18;
-  margin: 14px 0 16px;
+  margin: 14px 0 20px;
 }
-.featured h1 a { color: var(--ink); }
-.featured h1 a:hover { color: var(--green-dark); }
-.featured .lead { font-size: 1.06rem; color: var(--ink-soft); max-width: 56ch; }
-.featured .meta { margin-top: 18px; }
+.home-lead p { margin-bottom: 16px; max-width: 62ch; color: var(--ink-soft); }
+.home-lead .lead { font-size: 1.06rem; color: var(--ink); }
+.home-lead strong { color: var(--ink); font-weight: 600; }
+.home-note {
+  margin-top: 24px;
+  padding: 14px 18px;
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--khaki);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: .88rem;
+}
+.home-side { display: flex; flex-direction: column; gap: 32px; }
+.side-list--boxed {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--green);
+  border-radius: var(--radius);
+  padding: 20px 22px 8px;
+}
+.side-list--boxed h2 { border-bottom-color: var(--line); }
+.side-more {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--khaki);
+}
+.side-more:hover { color: var(--green-dark); }
 
 .side-list h2 {
   font-size: .78rem; font-weight: 600;
@@ -221,7 +261,7 @@ img { max-width: 100%; display: block; }
 .side-list .meta { margin-top: 4px; }
 
 @media (max-width: 860px) {
-  .featured-grid { grid-template-columns: 1fr; gap: 36px; }
+  .home-grid { grid-template-columns: 1fr; gap: 36px; }
 }
 
 /* ---------- article cards ---------- */
@@ -332,17 +372,114 @@ img { max-width: 100%; display: block; }
 
 /* ---------- article page ---------- */
 .article-page { padding: 52px 0 24px; }
-.article-page .article-head { max-width: 760px; }
+.article-page .article-head { max-width: 860px; }
 .article-page h1 {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.6vw, 2.5rem);
   font-weight: 600; line-height: 1.2;
   margin: 14px 0 14px;
 }
+/* Body left, spis treści działu right — mirrors the homepage proportions. */
+.article-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: 56px;
+  align-items: start;
+  margin-top: 24px;
+}
 .article-body {
   max-width: 700px;
-  padding: 8px 0 40px;
+  padding: 0 0 24px;
   font-size: 1.03rem;
+}
+
+/* Sticky section table of contents */
+.section-toc {
+  position: sticky; top: 92px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--green);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.section-toc .eyebrow { margin-bottom: 4px; }
+.section-toc h2 {
+  font-family: var(--font-display);
+  font-size: 1.12rem; font-weight: 600; line-height: 1.3;
+  margin: 4px 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-strong);
+}
+/* Scoped to direct children so the "Z działu" fallback list below doesn't
+   inherit the numbering or the hanging indent. */
+.section-toc > ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.section-toc > ol > li {
+  counter-increment: toc;
+  position: relative;
+  padding: 9px 0 9px 30px;
+  border-bottom: 1px solid var(--line);
+  font-size: .93rem; line-height: 1.4;
+}
+.section-toc > ol > li:last-child { border-bottom: none; }
+.section-toc > ol > li::before {
+  content: counter(toc, decimal-leading-zero);
+  position: absolute; left: 0; top: 10px;
+  font-size: .72rem; font-weight: 600;
+  color: var(--khaki);
+}
+.section-toc a { color: var(--ink); }
+.section-toc a:hover { color: var(--green-dark); }
+.section-toc .is-current > span {
+  font-weight: 600; color: var(--green-dark);
+  display: block;
+}
+.section-toc .is-current::before { color: var(--green); }
+.section-toc-more {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--khaki);
+}
+.section-toc-more:hover { color: var(--green-dark); }
+
+/* Sibling list — shown when the current section has only one article */
+.toc-related {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-strong);
+}
+/* Promoted to the top of the box (empty TOC above): drop the extra rule,
+   the h2 underline already separates it from the section name. */
+.section-toc > ol:empty + .toc-related {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.toc-related h3 {
+  font-size: .74rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--khaki);
+  margin-bottom: 10px;
+}
+.toc-related ul { list-style: none; margin: 0; padding: 0; }
+.toc-related li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: .9rem; line-height: 1.4;
+}
+.toc-related li:last-child { border-bottom: none; }
+.toc-related a { color: var(--ink); display: block; }
+.toc-related a:hover { color: var(--green-dark); }
+.toc-related-sec {
+  display: block;
+  font-size: .72rem; color: var(--khaki);
+  margin-top: 2px;
+}
+
+@media (max-width: 860px) {
+  .article-grid { grid-template-columns: 1fr; gap: 32px; }
+  .section-toc { position: static; }
 }
 .article-body h2 {
   font-family: var(--font-display);
@@ -392,4 +529,9 @@ img { max-width: 100%; display: block; }
 .footer-brand {
   font-family: var(--font-display);
   font-weight: 600; color: var(--ink);
+}
+.footer-credit {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: .82rem; color: var(--khaki);
 }

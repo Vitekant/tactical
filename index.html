@@ -26,29 +26,62 @@
       prawo <em>mundurowych</em>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="nav" id="site-nav" aria-label="Kategorie">
+    <nav class="nav" id="site-nav" aria-label="Menu główne">
       <ul id="nav-list"></ul>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="featured">
-    <div class="wrap featured-grid">
-      <div id="featured-slot"></div>
-      <aside class="side-list">
-        <h2>Najnowsze</h2>
-        <div id="side-latest"></div>
-      </aside>
-    </div>
-  </section>
+  <section class="home">
+    <div class="wrap home-grid">
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2><span class="chevrons" aria-hidden="true"></span>Wszystkie poradniki</h2>
+      <div class="home-lead">
+        <span class="eyebrow"><span class="chevrons" aria-hidden="true"></span>Poradnik prawny</span>
+        <h1>Prawo dla żołnierzy i funkcjonariuszy służb mundurowych</h1>
+        <p class="lead">
+          W tym serwisie znajdą Państwo wszystkie informacje, jakich żołnierze zawodowi
+          i funkcjonariusze innych służb mundurowych (Policji, Straży Granicznej, Agencji
+          Bezpieczeństwa Wewnętrznego, Służby Kontrwywiadu Wojskowego, Służby Wywiadu
+          Wojskowego, Służby Celnej, Straży Pożarnej etc.) mogą potrzebować na co dzień.
+        </p>
+        <p>
+          Służba wojskowa, w Policji, Straży Granicznej czy innych służbach mundurowych
+          oznacza nie tylko codzienną pracę z narażeniem zdrowia i życia dla dobra ojczyzny,
+          ale także konieczność umiejętnego poruszania się w gąszczu przepisów. Tylko ich
+          pełna znajomość i rozumienie pozwoli uniknąć licznych pułapek (związanych
+          z odpowiedzialnością karną czy dyscyplinarną) oraz w pełni korzystać z uprawnień
+          (finansowych, kwaterunkowych, emerytalnych i rentowych) gwarantowanych przez
+          obowiązujące przepisy. Informacje zawarte w niniejszym poradniku będą cenne
+          nie tylko dla osób pozostających obecnie w służbie, ale także dla kandydatów
+          oraz emerytów.
+        </p>
+        <p>
+          Materiały podzielone są na dwie ścieżki. <strong>Siły zbrojne</strong> — według
+          etapu służby, od rekrutacji po odejście z wojska. <strong>Służby mundurowe</strong>
+          — według formacji, bo Policja, Straż Graniczna, Służba Więzienna czy służby
+          specjalne mają odrębne pragmatyki służbowe i różne tryby odwoławcze.
+        </p>
+        <p class="home-note">
+          Treści mają charakter informacyjny i nie stanowią porady prawnej.
+          Każda sprawa wymaga indywidualnej analizy — w razie wątpliwości
+          <a href="https://adwokatmodzelewski.pl/#kontakt" rel="noopener">skontaktuj się z kancelarią</a>.
+        </p>
       </div>
-      <div class="cards" id="latest-grid"></div>
+
+      <div class="home-side">
+        <aside class="side-list">
+          <h2>Najnowsze artykuły</h2>
+          <div id="home-latest"></div>
+          <a class="side-more" href="aktualnosci.html">Wszystkie aktualności →</a>
+        </aside>
+
+        <aside class="side-list side-list--boxed">
+          <h2>Może Cię zainteresować</h2>
+          <div id="home-random"></div>
+        </aside>
+      </div>
+
     </div>
   </section>
 
@@ -58,7 +91,7 @@
         <h2>Potrzebujesz pomocy prawnej?</h2>
         <p>Poradniki nie zastąpią analizy Twojej sprawy. Adwokat Piotr Modzelewski prowadzi sprawy żołnierzy i funkcjonariuszy służb mundurowych — od postępowań dyscyplinarnych po spory o świadczenia.</p>
       </div>
-      <a class="btn" href="https://adwokatmodzelewski.pl/">Skontaktuj się z kancelarią</a>
+      <a class="btn" href="https://adwokatmodzelewski.pl/#kontakt" rel="noopener">Skontaktuj się z kancelarią</a>
     </div>
   </section>
 </main>
@@ -67,13 +100,14 @@
   <div class="wrap footer-inner">
     <div>
       <span class="footer-brand">prawomundurowych.pl</span><br>
-      © 2026 Adwokat Piotr Modzelewski. Treści mają charakter informacyjny i nie stanowią porady prawnej.
+      © 2026 Adwokat Piotr Modzelewski. Treści mają charakter informacyjny i nie stanowią porady prawnej.<br>
+      <span class="footer-credit">Realizacja: Vitech</span>
     </div>
     <nav aria-label="Stopka">
-      <a href="kategorie/sluzba-wojskowa.html">Służba wojskowa</a>
-      <a href="kategorie/policja-i-sluzby.html">Policja i służby</a>
-      <a href="kategorie/emerytury-i-swiadczenia.html">Emerytury i świadczenia</a>
-      <a href="kategorie/postepowania-dyscyplinarne.html">Postępowania dyscyplinarne</a>
+      <a href="dzialy/sily-zbrojne.html">Siły zbrojne</a>
+      <a href="dzialy/sluzby-mundurowe.html">Służby mundurowe</a>
+      <a href="aktualnosci.html">Aktualności</a>
+      <a href="https://adwokatmodzelewski.pl/#kontakt" rel="noopener">Pomoc prawna</a>
     </nav>
   </div>
 </footer>
