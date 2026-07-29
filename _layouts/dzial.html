@@ -48,6 +48,66 @@
   {%- assign head_eyebrow = "Dział" -%}
 {%- endif -%}
 {% include head.html title_full=head_title description=head_intro og_title=head_title %}
+
+{%- comment -%}
+  CollectionPage + ItemList — mówi wyszukiwarce, że to strona zbiorcza
+  i jakie artykuły zawiera. BreadcrumbList buduje ścieżkę nawigacji.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ head_title | jsonify }},
+  "description": {{ head_intro | jsonify }},
+  "inLanguage": "pl",
+  "url": "{{ page.url | absolute_url }}",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": {{ site.title | jsonify }},
+    "url": "{{ '/' | absolute_url }}"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ items.size }},
+    "itemListElement": [
+      {%- for a in items %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "name": {{ a.title | jsonify }},
+        "url": "{{ a.url | absolute_url }}"
+      }{% unless forloop.last %},{% endunless %}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Strona główna",
+      "item": "{{ '/' | absolute_url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ cur_branch.label | jsonify }},
+      "item": "{{ '/dzialy/' | append: cur_branch.page | append: '.html' | absolute_url }}"
+    }{% if cur_section %},
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ cur_section.label | jsonify }},
+      "item": "{{ page.url | absolute_url }}"
+    }{% endif %}
+  ]
+}
+</script>
 </head>
 <body>
 

@@ -7,8 +7,36 @@ title: "Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy"
 <head>
 {% include head.html
    title_full="Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy"
-   description="Praktyczne poradniki prawne dla żołnierzy zawodowych, policjantów i funkcjonariuszy służb mundurowych. Emerytury mundurowe, postępowania dyscyplinarne, odwołania, świadczenia."
+   description="Poradniki prawne dla żołnierzy zawodowych i funkcjonariuszy służb mundurowych: emerytury, dyscyplinarki, zwolnienie ze służby, świadczenia."
    canonical="https://prawomundurowych.pl/" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.title | jsonify }},
+  "alternateName": "prawomundurowych.pl",
+  "url": "{{ '/' | absolute_url }}",
+  "description": {{ site.description | jsonify }},
+  "inLanguage": "pl",
+  "publisher": {
+    "@type": "LegalService",
+    "name": "Adwokat Piotr Modzelewski — Kancelaria Adwokacka",
+    "url": "https://adwokatmodzelewski.pl/",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Polska"
+    },
+    "knowsAbout": [
+      {%- for b in site.data.dzialy -%}
+        {%- for s in b.sections -%}
+      {{ s.label | jsonify }}{% unless forloop.last and b.id == 'sluzby-mundurowe' %},{% endunless %}
+        {%- endfor -%}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
 </head>
 <body>
 

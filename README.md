@@ -59,12 +59,29 @@ Strona pod `http://localhost:4000`.
 
 ## Uwaga — przed startem
 
-- **Wszystkie strony mają `noindex, nofollow`** (znacznik siedzi w jednym
-  miejscu: `_includes/head.html`). Trzeba go usunąć przed uruchomieniem
-  serwisu, inaczej Google nie zaindeksuje strony.
-- Teksty artykułów oznaczone `[SZKIC...]` to **szkice do weryfikacji
-  merytorycznej** — podstawy prawne i terminy wymagają potwierdzenia.
-- `sitemap.xml` generuje się automatycznie (wtyczka `jekyll-sitemap`).
+1. **Odblokuj indeksowanie.** W `_config.yml` zmień `preview: true`
+   na `preview: false`. To jedyna zmiana — znika wtedy `noindex` ze
+   wszystkich stron (poza 404, która ma zostać nieindeksowana).
+2. **Zweryfikuj szkice.** Teksty oznaczone `[SZKIC...]` czekają na
+   potwierdzenie podstaw prawnych i terminów.
+3. **Zgłoś serwis** w Google Search Console i wyślij
+   `https://prawomundurowych.pl/sitemap.xml`.
+
+## SEO — co jest zrobione
+
+- unikalny `title` i `description` na każdej stronie, `canonical`, `lang="pl"`,
+  dokładnie jeden `<h1>`,
+- `sitemap.xml` i `robots.txt` (sitemap generuje się sam, z datami `lastmod`),
+- dane strukturalne JSON-LD: `Article` (wpisy), `CollectionPage` + `ItemList`
+  (działy), `WebSite` + `LegalService` (strona główna) oraz `BreadcrumbList`
+  wszędzie — to z niej Google buduje ścieżkę nawigacji w wynikach,
+- Open Graph i Twitter Card z obrazkiem `assets/og-image.jpg` (podgląd linku
+  na Facebooku, LinkedInie, WhatsAppie),
+- favikona (SVG + PNG + `favicon.ico`),
+- adresy stron nie zmieniły się od czasu migracji na Jekylla.
+
+Zostaje do rozważenia w przyszłości: własne obrazki OG dla pojedynczych
+wpisów oraz schema `FAQPage` w artykułach o strukturze pytań i odpowiedzi.
 
 ## Deploy
 

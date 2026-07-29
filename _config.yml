@@ -13,6 +13,15 @@ description: "Poradnik prawny dla żołnierzy zawodowych i funkcjonariuszy słu�
 url: "https://prawomundurowych.pl"
 lang: pl
 
+# =====================================================================
+# PRZED URUCHOMIENIEM SERWISU ZMIEŃ NA false
+# ---------------------------------------------------------------------
+# true  = wszystkie strony dostają <meta name="robots" content="noindex">
+#         (wersja podglądowa — Google nie zaindeksuje serwisu)
+# false = strony normalnie się indeksują
+# =====================================================================
+preview: true
+
 markdown: kramdown
 
 # jekyll-sitemap generuje /sitemap.xml automatycznie z opublikowanych stron,

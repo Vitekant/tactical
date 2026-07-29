@@ -39,7 +39,46 @@
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ page.url | absolute_url }}"
-  }
+  },
+  "image": "{{ '/assets/og-image.jpg' | absolute_url }}"{% if primary %},
+  "articleSection": {{ primary.label | jsonify }}{% endif %}
+}
+</script>
+
+{%- comment -%}
+  BreadcrumbList — Google pokazuje na jej podstawie ścieżkę nawigacji
+  w wynikach wyszukiwania zamiast surowego adresu URL.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Strona główna",
+      "item": "{{ '/' | absolute_url }}"
+    }{% if primary_branch %},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ primary_branch.label | jsonify }},
+      "item": "{{ '/dzialy/' | append: primary_branch.page | append: '.html' | absolute_url }}"
+    }{% endif %}{% if primary %},
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ primary.label | jsonify }},
+      "item": "{{ '/dzialy/' | append: primary.page | append: '.html' | absolute_url }}"
+    }{% endif %},
+    {
+      "@type": "ListItem",
+      "position": {% if primary %}4{% else %}2{% endif %},
+      "name": {{ page.title | jsonify }},
+      "item": "{{ page.url | absolute_url }}"
+    }
+  ]
 }
 </script>
 </head>
