@@ -97,7 +97,7 @@ title: "Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy"
               <div class="meta">
                 {%- assign a_first = a.sections | first -%}
                 {%- for b in site.data.dzialy -%}{%- for s in b.sections -%}{%- if s.id == a_first %}
-                <a class="cat" href="{{ '/dzialy/' | append: s.id | append: '.html' | relative_url }}"><span class="chevrons" aria-hidden="true"></span>{{ s.label }}</a>
+                <a class="cat" href="{{ '/dzialy/' | append: s.page | append: '.html' | relative_url }}"><span class="chevrons" aria-hidden="true"></span>{{ s.label }}</a>
                 {%- endif -%}{%- endfor -%}{%- endfor %}
                 <time datetime="{{ a.date | date: '%Y-%m-%d' }}">{% include data.html date=a.date %}</time>
               </div>

@@ -20,6 +20,16 @@
 <meta property="og:type" content="{{ include.og_type | default: 'website' }}">
 <meta property="og:url" content="{{ include.canonical | default: page.url | absolute_url }}">
 
+{%- comment -%}
+  Favikona: znak szewronów (ten sam motyw co .chevrons w styles.css).
+  SVG dla nowoczesnych przeglądarek, PNG jako zapas, /favicon.ico w katalogu
+  głównym — po niego Firefox i starsze przeglądarki sięgają automatycznie.
+{%- endcomment -%}
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icon-32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/icon-16.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/icon-180.png' | relative_url }}">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">

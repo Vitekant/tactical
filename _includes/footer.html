@@ -22,7 +22,7 @@
     </div>
     <nav aria-label="Stopka">
       {%- for branch in site.data.dzialy %}
-      <a href="{{ '/dzialy/' | append: branch.id | append: '.html' | relative_url }}">{{ branch.label }}</a>
+      <a href="{{ '/dzialy/' | append: branch.page | append: '.html' | relative_url }}">{{ branch.label }}</a>
       {%- endfor %}
       <a href="https://adwokatmodzelewski.pl/#kontakt" rel="noopener">Pomoc prawna</a>
     </nav>

@@ -23,6 +23,7 @@ plugins:
 exclude:
   - README.md
   - CLAUDE.md
+  - DODAWANIE-ARTYKULU.md
   - .gitignore
   - kategorie.json   # ściąga dla autora, nie część serwisu
 

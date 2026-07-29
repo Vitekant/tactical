@@ -76,7 +76,7 @@
           {%- unless cur_section -%}
             {%- assign a_first = a.sections | first -%}
             {%- for b in site.data.dzialy -%}{%- for s in b.sections -%}{%- if s.id == a_first %}
-          <a class="cat" href="{{ '/dzialy/' | append: s.id | append: '.html' | relative_url }}"><span class="chevrons" aria-hidden="true"></span>{{ s.label }}</a>
+          <a class="cat" href="{{ '/dzialy/' | append: s.page | append: '.html' | relative_url }}"><span class="chevrons" aria-hidden="true"></span>{{ s.label }}</a>
             {%- endif -%}{%- endfor -%}{%- endfor -%}
           {%- endunless %}
           <time datetime="{{ a.date | date: '%Y-%m-%d' }}">{% include data.html date=a.date %}</time>
@@ -98,7 +98,7 @@
           {%- if cur_section and s.id == cur_section.id %}
         <li class="is-current"><span aria-current="page"><span class="branch-sections-name">{{ s.label }}</span><span class="branch-sections-count">{{ count }} {{ word }}</span></span></li>
           {%- else %}
-        <li><a href="{{ '/dzialy/' | append: s.id | append: '.html' | relative_url }}"><span class="branch-sections-name">{{ s.label }}</span><span class="branch-sections-count">{{ count }} {{ word }}</span></a></li>
+        <li><a href="{{ '/dzialy/' | append: s.page | append: '.html' | relative_url }}"><span class="branch-sections-name">{{ s.label }}</span><span class="branch-sections-count">{{ count }} {{ word }}</span></a></li>
           {%- endif %}
         {%- endfor %}
       </ul>

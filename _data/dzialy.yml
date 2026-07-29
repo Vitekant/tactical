@@ -27,35 +27,47 @@
   label: "Siły zbrojne"
   # Nagłówek bocznej listy działów na stronach tej gałęzi
   aside_label: "Działy"
+  # `page` = nazwa pliku w dzialy/ (bez rozszerzenia). Trzymamy ją osobno od
+  # `id`, bo adresy stron pochodzą sprzed migracji i nie wolno ich zmieniać.
+  page: sily-zbrojne
   intro: "Prawa i obowiązki żołnierzy zawodowych na każdym etapie służby — od rekrutacji, przez przebieg kariery, po zaopatrzenie emerytalne."
   sections:
     - id: przed
+      page: sily-zbrojne-przed
       label: "Przed rozpoczęciem służby"
       intro: "Rekrutacja, kwalifikacja wojskowa, wymogi formalne i zdrowotne oraz przebieg powołania do zawodowej służby wojskowej."
     - id: w-trakcie
+      page: sily-zbrojne-w-trakcie
       label: "W trakcie służby"
       intro: "Przebieg służby żołnierza zawodowego: opinie służbowe, świadczenia, wypadki na służbie, odpowiedzialność dyscyplinarna."
     - id: po-zakonczeniu
+      page: sily-zbrojne-po-zakonczeniu
       label: "Po zakończeniu służby"
       intro: "Zwolnienie ze służby, zaopatrzenie emerytalne żołnierzy, odprawy i świadczenia należne po odejściu z wojska."
 
 - id: sluzby-mundurowe
   label: "Służby mundurowe"
   aside_label: "Formacje"
+  page: sluzby-mundurowe
   intro: "Poradniki dla funkcjonariuszy służb mundurowych — z podziałem na formacje, z uwzględnieniem odrębnych pragmatyk służbowych."
   sections:
     - id: policja
+      page: policja
       label: "Policja"
       intro: "Służba w Policji: nawiązanie i rozwiązanie stosunku służbowego, postępowania dyscyplinarne, opiniowanie, świadczenia."
     - id: straz-graniczna
+      page: straz-graniczna
       label: "Straż Graniczna"
       intro: "Stosunek służbowy funkcjonariusza Straży Granicznej — powołanie, przebieg służby, zwolnienie i tryb odwoławczy."
     - id: sluzba-wiezienna
+      page: sluzba-wiezienna
       label: "Służba Więzienna"
       intro: "Prawa i obowiązki funkcjonariuszy Służby Więziennej: pragmatyka służbowa, dyscyplinarki, świadczenia i zwolnienie ze służby."
     - id: skw-sww
+      page: skw-sww
       label: "SKW i SWW"
       intro: "Służba w Służbie Kontrwywiadu Wojskowego i Służbie Wywiadu Wojskowego — specyfika stosunku służbowego i postępowań."
     - id: inne
+      page: inne-sluzby
       label: "Inne służby"
       intro: "ABW, AW, CBA, SOP, PSP, KAS i pozostałe formacje — zagadnienia wspólne dla funkcjonariuszy służb mundurowych."

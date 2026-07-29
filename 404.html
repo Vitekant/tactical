@@ -1,25 +1,66 @@
+---
+layout: null
+title: "Nie znaleziono strony"
+permalink: /404.html
+---
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nie znaleziono strony — Prawo Mundurowych</title>
-  <meta name="robots" content="noindex">
-  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+{% include head.html
+   title_full="Nie znaleziono strony — Prawo Mundurowych"
+   description="Strona, której szukasz, nie istnieje albo została przeniesiona." %}
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="./"><span class="chevrons" aria-hidden="true"></span>prawo <em>mundurowych</em></a>
-  </div>
-</header>
+
+{% include nav.html %}
+
 <main>
-  <div class="page-head"><div class="wrap">
-    <span class="eyebrow">Błąd 404</span>
-    <h1><span class="chevrons" aria-hidden="true"></span>Nie znaleziono strony</h1>
-    <p class="intro">Strona, której szukasz, nie istnieje albo została przeniesiona. <a href="./">Wróć na stronę główną</a>.</p>
-  </div></div>
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Błąd 404</span>
+      <h1><span class="chevrons" aria-hidden="true"></span>Nie znaleziono strony</h1>
+      <p class="intro">Strona, której szukasz, nie istnieje albo została przeniesiona. <a href="{{ '/' | relative_url }}">Wróć na stronę główną</a> albo wybierz dział poniżej.</p>
+    </div>
+  </div>
+
+  <div class="wrap listing-grid">
+    <div class="article-list">
+      {%- assign latest = site.artykuly | sort: "date" | reverse -%}
+      {%- for a in latest limit: 5 %}
+      <article>
+        <h2><a href="{{ a.url | relative_url }}">{{ a.title }}</a></h2>
+        <p>{{ a.summary }}</p>
+        <div class="meta">
+          {%- assign a_first = a.sections | first -%}
+          {%- for b in site.data.dzialy -%}{%- for s in b.sections -%}{%- if s.id == a_first %}
+          <a class="cat" href="{{ '/dzialy/' | append: s.page | append: '.html' | relative_url }}"><span class="chevrons" aria-hidden="true"></span>{{ s.label }}</a>
+          {%- endif -%}{%- endfor -%}{%- endfor %}
+          <time datetime="{{ a.date | date: '%Y-%m-%d' }}">{% include data.html date=a.date %}</time>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+
+    <aside class="branch-sections">
+      <h2>Działy</h2>
+      <ul>
+        {%- for b in site.data.dzialy -%}
+          {%- for s in b.sections %}
+          {%- assign count = 0 -%}
+          {%- for a in site.artykuly -%}
+            {%- if a.sections contains s.id -%}{%- assign count = count | plus: 1 -%}{%- endif -%}
+          {%- endfor -%}
+          {%- if count == 1 %}{% assign word = "artykuł" %}{% elsif count >= 2 and count <= 4 %}{% assign word = "artykuły" %}{% else %}{% assign word = "artykułów" %}{% endif %}
+        <li><a href="{{ '/dzialy/' | append: s.page | append: '.html' | relative_url }}"><span class="branch-sections-name">{{ s.label }}</span><span class="branch-sections-count">{{ count }} {{ word }}</span></a></li>
+          {%- endfor -%}
+        {%- endfor %}
+      </ul>
+    </aside>
+  </div>
 </main>
+
+{% include footer.html %}
+
+<script src="{{ '/js/site.js' | relative_url }}"></script>
 </body>
 </html>
