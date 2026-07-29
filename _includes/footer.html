@@ -1,0 +1,30 @@
+{%- comment -%}
+  Pasek CTA + stopka. Parametry:
+    cta_title — nagłówek CTA (domyślnie "Potrzebujesz pomocy prawnej?")
+    cta_text  — treść CTA
+{%- endcomment -%}
+<section class="cta-band">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>{{ include.cta_title | default: "Potrzebujesz pomocy prawnej?" }}</h2>
+      <p>{{ include.cta_text | default: "Poradniki nie zastąpią analizy Twojej sprawy. Adwokat Piotr Modzelewski prowadzi sprawy żołnierzy i funkcjonariuszy służb mundurowych — od postępowań dyscyplinarnych po spory o świadczenia." }}</p>
+    </div>
+    <a class="btn" href="https://adwokatmodzelewski.pl/#kontakt" rel="noopener">Skontaktuj się z kancelarią</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <span class="footer-brand">prawomundurowych.pl</span><br>
+      © {{ site.time | date: "%Y" }} Adwokat Piotr Modzelewski. Treści mają charakter informacyjny i nie stanowią porady prawnej.<br>
+      <span class="footer-credit">Realizacja: Vitech</span>
+    </div>
+    <nav aria-label="Stopka">
+      {%- for branch in site.data.dzialy %}
+      <a href="{{ '/dzialy/' | append: branch.id | append: '.html' | relative_url }}">{{ branch.label }}</a>
+      {%- endfor %}
+      <a href="https://adwokatmodzelewski.pl/#kontakt" rel="noopener">Pomoc prawna</a>
+    </nav>
+  </div>
+</footer>

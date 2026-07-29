@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+{%- comment -%}
+  Layout list artykułów. Strona ustawia w front-matterze:
+    branch:  <id gałęzi>            — strona gałęzi (lista wszystkich działów)
+    section: <id działu>            — strona pojedynczego działu
+  Dla strony działu `branch` wylicza się automatycznie.
+{%- endcomment -%}
+{%- assign cur_branch = nil -%}
+{%- assign cur_section = nil -%}
+{%- for b in site.data.dzialy -%}
+  {%- if b.id == page.branch -%}{%- assign cur_branch = b -%}{%- endif -%}
+  {%- for s in b.sections -%}
+    {%- if s.id == page.section -%}
+      {%- assign cur_section = s -%}
+      {%- assign cur_branch = b -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- comment -%} Artykuły: dla działu — te z jego id; dla gałęzi — z dowolnego jej działu. {%- endcomment -%}
+{%- assign items = "" | split: "" -%}
+{%- if cur_section -%}
+  {%- for a in site.artykuly -%}
+    {%- if a.sections contains cur_section.id -%}{%- assign items = items | push: a -%}{%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign branch_ids = "" | split: "" -%}
+  {%- for s in cur_branch.sections -%}{%- assign branch_ids = branch_ids | push: s.id -%}{%- endfor -%}
+  {%- for a in site.artykuly -%}
+    {%- assign hit = false -%}
+    {%- for sid in a.sections -%}
+      {%- if branch_ids contains sid -%}{%- assign hit = true -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if hit -%}{%- assign items = items | push: a -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- assign items = items | sort: "date" | reverse -%}
+
+{%- if cur_section -%}
+  {%- assign head_title = cur_section.label -%}
+  {%- assign head_intro = cur_section.intro -%}
+  {%- assign head_eyebrow = cur_branch.label -%}
+{%- else -%}
+  {%- assign head_title = cur_branch.label -%}
+  {%- assign head_intro = cur_branch.intro -%}
+  {%- assign head_eyebrow = "Dział" -%}
+{%- endif -%}
+{% include head.html title_full=head_title description=head_intro og_title=head_title %}
+</head>
+<body>
+
+{% include nav.html %}
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">{{ head_eyebrow }}</span>
+      <h1><span class="chevrons" aria-hidden="true"></span>{{ head_title }}</h1>
+      <p class="intro">{{ head_intro }}</p>
+    </div>
+  </div>
+
+  <div class="wrap listing-grid">
+    <div class="article-list">
+      {%- if items.size == 0 %}
+      <p>Wkrótce opublikujemy pierwsze artykuły w tym dziale.</p>
+      {%- else %}
+        {%- for a in items %}
+      <article>
+        <h2><a href="{{ a.url | relative_url }}">{{ a.title }}</a></h2>
+        <p>{{ a.summary }}</p>
+        <div class="meta">
+          {%- comment -%} Na stronie gałęzi pokazujemy, z którego działu jest wpis. {%- endcomment -%}
+          {%- unless cur_section -%}
+            {%- assign a_first = a.sections | first -%}
+            {%- for b in site.data.dzialy -%}{%- for s in b.sections -%}{%- if s.id == a_first %}
+          <a class="cat" href="{{ '/dzialy/' | append: s.id | append: '.html' | relative_url }}"><span class="chevrons" aria-hidden="true"></span>{{ s.label }}</a>
+            {%- endif -%}{%- endfor -%}{%- endfor -%}
+          {%- endunless %}
+          <time datetime="{{ a.date | date: '%Y-%m-%d' }}">{% include data.html date=a.date %}</time>
+        </div>
+      </article>
+        {%- endfor %}
+      {%- endif %}
+    </div>
+
+    <aside class="branch-sections">
+      <h2>{{ cur_branch.aside_label }}</h2>
+      <ul>
+        {%- for s in cur_branch.sections %}
+          {%- assign count = 0 -%}
+          {%- for a in site.artykuly -%}
+            {%- if a.sections contains s.id -%}{%- assign count = count | plus: 1 -%}{%- endif -%}
+          {%- endfor -%}
+          {%- if count == 1 %}{% assign word = "artykuł" %}{% elsif count >= 2 and count <= 4 %}{% assign word = "artykuły" %}{% else %}{% assign word = "artykułów" %}{% endif -%}
+          {%- if cur_section and s.id == cur_section.id %}
+        <li class="is-current"><span aria-current="page"><span class="branch-sections-name">{{ s.label }}</span><span class="branch-sections-count">{{ count }} {{ word }}</span></span></li>
+          {%- else %}
+        <li><a href="{{ '/dzialy/' | append: s.id | append: '.html' | relative_url }}"><span class="branch-sections-name">{{ s.label }}</span><span class="branch-sections-count">{{ count }} {{ word }}</span></a></li>
+          {%- endif %}
+        {%- endfor %}
+      </ul>
+    </aside>
+  </div>
+</main>
+
+{% include footer.html cta_text="Poradniki nie zastąpią analizy Twojej sprawy. Adwokat Piotr Modzelewski prowadzi sprawy żołnierzy i funkcjonariuszy służb mundurowych." %}
+
+<script src="{{ '/js/site.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{%- comment -%}
+  Nagłówek + menu. Rozwijane listy budowane są z _data/dzialy.yml, więc
+  nowy dział pojawia się w menu automatycznie.
+
+  Licznik przy dziale = liczba artykułów, które mają ten dział na liście
+  `sections` (artykuł może być w kilku działach naraz).
+{%- endcomment -%}
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="chevrons" aria-hidden="true"></span>
+      prawo <em>mundurowych</em>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Menu główne">
+      <ul id="nav-list">
+        {%- for branch in site.data.dzialy %}
+        <li>
+          <a href="{{ '/dzialy/' | append: branch.id | append: '.html' | relative_url }}"
+             aria-haspopup="true" aria-expanded="false">{{ branch.label }}</a>
+          <div class="dropdown">
+            {%- for section in branch.sections %}
+              {%- assign count = 0 -%}
+              {%- for a in site.artykuly -%}
+                {%- if a.sections contains section.id -%}{%- assign count = count | plus: 1 -%}{%- endif -%}
+              {%- endfor -%}
+            <a href="{{ '/dzialy/' | append: section.id | append: '.html' | relative_url }}">{{ section.label }}<span class="dropdown-count">{{ count }}</span></a>
+            {%- endfor %}
+            <a class="dropdown-all" href="{{ '/dzialy/' | append: branch.id | append: '.html' | relative_url }}">Wszystkie artykuły →</a>
+          </div>
+        </li>
+        {%- endfor %}
+        <li class="nav-plain"><a href="https://adwokatmodzelewski.pl/" rel="noopener">Pomoc prawna</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

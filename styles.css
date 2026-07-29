@@ -561,6 +561,41 @@ img { max-width: 100%; display: block; }
   margin: 0 0 18px;
   font-size: .97rem;
 }
+/* "Artykuł dotyczy:" — widoczne tylko gdy wpis należy do kilku działów */
+.article-sections {
+  max-width: 700px;
+  margin: 0 0 24px;
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 8px;
+}
+.article-sections-label {
+  font-size: .74rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--khaki);
+  margin-right: 4px;
+}
+.article-sections > a {
+  display: inline-flex; flex-direction: column;
+  padding: 6px 12px;
+  border: 1px solid var(--line-strong);
+  border-left: 2px solid var(--green);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: .88rem; font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.article-sections > a:hover {
+  border-left-color: var(--green-dark);
+  background: var(--green-tint);
+  color: var(--green-dark);
+}
+.article-sections-branch {
+  font-size: .7rem; font-weight: 400;
+  color: var(--khaki);
+  letter-spacing: .04em;
+}
+
 .disclaimer {
   max-width: 700px;
   margin: 8px 0 48px;

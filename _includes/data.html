@@ -1,0 +1,20 @@
+{%- comment -%}
+  Data po polsku. Jekyll nie ma lokalizacji, więc miesiąc podmieniamy ręcznie.
+  Użycie:  {% include data.html date=page.date %}
+{%- endcomment -%}
+{%- assign m = include.date | date: "%-m" | plus: 0 -%}
+{%- case m -%}
+{%- when 1 -%}{%- assign msc = "stycznia" -%}
+{%- when 2 -%}{%- assign msc = "lutego" -%}
+{%- when 3 -%}{%- assign msc = "marca" -%}
+{%- when 4 -%}{%- assign msc = "kwietnia" -%}
+{%- when 5 -%}{%- assign msc = "maja" -%}
+{%- when 6 -%}{%- assign msc = "czerwca" -%}
+{%- when 7 -%}{%- assign msc = "lipca" -%}
+{%- when 8 -%}{%- assign msc = "sierpnia" -%}
+{%- when 9 -%}{%- assign msc = "września" -%}
+{%- when 10 -%}{%- assign msc = "października" -%}
+{%- when 11 -%}{%- assign msc = "listopada" -%}
+{%- when 12 -%}{%- assign msc = "grudnia" -%}
+{%- endcase -%}
+{{ include.date | date: "%-d" }} {{ msc }} {{ include.date | date: "%Y" }}

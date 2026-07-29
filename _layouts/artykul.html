@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+{%- comment -%}
+  Pierwszy dział z listy `sections` jest działem "wiodącym" — to on trafia
+  do breadcrumbu nad tytułem i wyznacza boczny spis treści.
+{%- endcomment -%}
+{%- assign primary_id = page.sections | first -%}
+{%- assign primary = nil -%}
+{%- assign primary_branch = nil -%}
+{%- for branch in site.data.dzialy -%}
+  {%- for section in branch.sections -%}
+    {%- if section.id == primary_id -%}
+      {%- assign primary = section -%}
+      {%- assign primary_branch = branch -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{% include head.html description=page.summary og_type="article" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  {% if page.summary %}"description": {{ page.summary | jsonify }},{% endif %}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "inLanguage": "pl",
+  "author": {
+    "@type": "Person",
+    "name": "Piotr Modzelewski"
+  },
+  "publisher": {
+    "@type": "LegalService",
+    "name": "Adwokat Piotr Modzelewski — Kancelaria Adwokacka",
+    "url": "https://adwokatmodzelewski.pl/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+</head>
+<body>
+
+{% include nav.html %}
+
+<main>
+  <article class="article-page">
+    <div class="wrap">
+      <div class="article-head">
+        <div class="meta">
+          {%- if primary %}
+          <a class="cat" href="{{ '/dzialy/' | append: primary.id | append: '.html' | relative_url }}"><span class="chevrons" aria-hidden="true"></span>{{ primary.label }}</a>
+          {%- endif %}
+          <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{% include data.html date=page.date %}</time>
+        </div>
+        <h1>{{ page.title }}</h1>
+      </div>
+      <div class="article-grid">
+        <div class="article-main">
+          <div class="article-body">
+            {{ content }}
+          </div>
+
+          {%- comment -%}
+            Gdy artykuł należy do więcej niż jednego działu, pokazujemy pełną
+            listę przynależności — czytelnik widzi, że tekst dotyczy np. i
+            żołnierzy, i policjantów.
+          {%- endcomment -%}
+          {%- if page.sections.size > 1 %}
+          <div class="article-sections">
+            <span class="article-sections-label">Artykuł dotyczy:</span>
+            {%- for sid in page.sections -%}
+              {%- for branch in site.data.dzialy -%}
+                {%- for section in branch.sections -%}
+                  {%- if section.id == sid %}
+            <a href="{{ '/dzialy/' | append: section.id | append: '.html' | relative_url }}">{{ section.label }}<span class="article-sections-branch">{{ branch.label }}</span></a>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endfor -%}
+            {%- endfor %}
+          </div>
+          {%- endif %}
+
+          <div class="disclaimer">
+            Artykuł ma charakter wyłącznie informacyjny i nie stanowi porady prawnej. Stan prawny może ulec zmianie, a każda sprawa wymaga indywidualnej analizy. W razie wątpliwości skontaktuj się z adwokatem.
+          </div>
+        </div>
+
+        {%- comment -%}
+          Boczny spis treści działu wiodącego. Gdy dział ma tylko ten jeden
+          artykuł, zamiast listy jednoelementowej pokazujemy teksty pokrewne
+          z całej gałęzi.
+        {%- endcomment -%}
+        {%- if primary %}
+          {%- assign siblings = "" | split: "" -%}
+          {%- for a in site.artykuly -%}
+            {%- if a.sections contains primary.id -%}
+              {%- assign siblings = siblings | push: a -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- assign siblings = siblings | sort: "date" | reverse -%}
+        <aside class="section-toc">
+          <span class="eyebrow">Spis treści działu</span>
+          <h2>{{ primary.label }}</h2>
+          {%- if siblings.size > 1 %}
+          <ol>
+            {%- for a in siblings %}
+            {%- if a.url == page.url %}
+            <li class="is-current"><span aria-current="true">{{ a.title }}</span></li>
+            {%- else %}
+            <li><a href="{{ a.url | relative_url }}">{{ a.title }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ol>
+          {%- else %}
+          <ol></ol>
+            {%- comment -%} Dział ma tylko ten artykuł — pokaż sąsiadów z gałęzi. {%- endcomment -%}
+            {%- assign branch_ids = "" | split: "" -%}
+            {%- for s in primary_branch.sections -%}{%- assign branch_ids = branch_ids | push: s.id -%}{%- endfor -%}
+            {%- assign related = "" | split: "" -%}
+            {%- for a in site.artykuly -%}
+              {%- if a.url != page.url -%}
+                {%- assign hit = false -%}
+                {%- for sid in a.sections -%}
+                  {%- if branch_ids contains sid -%}{%- assign hit = true -%}{%- endif -%}
+                {%- endfor -%}
+                {%- if hit -%}{%- assign related = related | push: a -%}{%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- assign related = related | sort: "date" | reverse -%}
+            {%- if related.size > 0 %}
+          <div class="toc-related">
+            <h3>Zobacz też — {{ primary_branch.label }}</h3>
+            <ul>
+              {%- for a in related limit: 5 %}
+              {%- assign a_first = a.sections | first -%}
+              <li><a href="{{ a.url | relative_url }}">{{ a.title }}
+                {%- for b in site.data.dzialy -%}{%- for s in b.sections -%}{%- if s.id == a_first %}<span class="toc-related-sec">{{ s.label }}</span>{%- endif -%}{%- endfor -%}{%- endfor -%}
+              </a></li>
+              {%- endfor %}
+            </ul>
+          </div>
+            {%- endif %}
+          {%- endif %}
+          <a class="section-toc-more" href="{{ '/dzialy/' | append: primary.id | append: '.html' | relative_url }}">Zobacz cały dział →</a>
+        </aside>
+        {%- endif %}
+      </div>
+    </div>
+  </article>
+</main>
+
+{% include footer.html cta_title="Masz podobną sprawę?" cta_text="Adwokat Piotr Modzelewski prowadzi sprawy żołnierzy i funkcjonariuszy służb mundurowych — od postępowań dyscyplinarnych po spory o świadczenia." %}
+
+<script src="{{ '/js/site.js' | relative_url }}"></script>
+</body>
+</html>

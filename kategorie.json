@@ -1,0 +1,59 @@
+{
+  "_opis": "Ściąga z dostępnymi działami. W pliku artykułu (_artykuly/*.md) w polu `sections` wpisz JEDEN LUB WIĘCEJ identyfikatorów z listy `dostepne_dzialy` poniżej. Gałąź (siły zbrojne / służby mundurowe) wylicza się automatycznie — nie podaje się jej we wpisie.",
+  "_zrodlo_prawdy": "_data/dzialy.yml — ten plik jest tylko wygodną ściągą; przy zmianach aktualizuj oba.",
+  "_przyklad": {
+    "opis": "Artykuł o dyscyplinarce dotyczący i żołnierzy, i policjantów, i pograniczników:",
+    "front_matter": "sections: [w-trakcie, policja, straz-graniczna]"
+  },
+
+  "dostepne_dzialy": [
+    {
+      "id": "przed",
+      "nazwa": "Przed rozpoczęciem służby",
+      "galaz": "sily-zbrojne",
+      "galaz_nazwa": "Siły zbrojne"
+    },
+    {
+      "id": "w-trakcie",
+      "nazwa": "W trakcie służby",
+      "galaz": "sily-zbrojne",
+      "galaz_nazwa": "Siły zbrojne"
+    },
+    {
+      "id": "po-zakonczeniu",
+      "nazwa": "Po zakończeniu służby",
+      "galaz": "sily-zbrojne",
+      "galaz_nazwa": "Siły zbrojne"
+    },
+    {
+      "id": "policja",
+      "nazwa": "Policja",
+      "galaz": "sluzby-mundurowe",
+      "galaz_nazwa": "Służby mundurowe"
+    },
+    {
+      "id": "straz-graniczna",
+      "nazwa": "Straż Graniczna",
+      "galaz": "sluzby-mundurowe",
+      "galaz_nazwa": "Służby mundurowe"
+    },
+    {
+      "id": "sluzba-wiezienna",
+      "nazwa": "Służba Więzienna",
+      "galaz": "sluzby-mundurowe",
+      "galaz_nazwa": "Służby mundurowe"
+    },
+    {
+      "id": "skw-sww",
+      "nazwa": "SKW i SWW",
+      "galaz": "sluzby-mundurowe",
+      "galaz_nazwa": "Służby mundurowe"
+    },
+    {
+      "id": "inne",
+      "nazwa": "Inne służby",
+      "galaz": "sluzby-mundurowe",
+      "galaz_nazwa": "Służby mundurowe"
+    }
+  ]
+}

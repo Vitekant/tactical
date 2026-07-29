@@ -1,0 +1,42 @@
+# =====================================================================
+# Jekyll — konfiguracja
+# ---------------------------------------------------------------------
+# GitHub Pages uruchamia Jekyll automatycznie przy każdym pushu na main.
+# Nie trzeba nic budować lokalnie ani instalować.
+#
+# Pliki statyczne (styles.css, js/, robots.txt) kopiowane są 1:1.
+# Pliki z front-matterem (--- na górze) renderuje Jekyll przez Liquid.
+# =====================================================================
+
+title: "Prawo Mundurowych"
+description: "Poradnik prawny dla żołnierzy zawodowych i funkcjonariuszy służb mundurowych"
+url: "https://prawomundurowych.pl"
+lang: pl
+
+markdown: kramdown
+
+# jekyll-sitemap generuje /sitemap.xml automatycznie z opublikowanych stron,
+# dzięki czemu nie trzeba go już utrzymywać ręcznie.
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - CLAUDE.md
+  - .gitignore
+  - kategorie.json   # ściąga dla autora, nie część serwisu
+
+# ----- Kolekcja artykułów -----
+# Pliki leżą w _artykuly/, a trafiają pod /artykuly/<slug>.html — czyli
+# dokładnie tam, gdzie były przed migracją (żadne linki się nie psują).
+collections:
+  artykuly:
+    output: true
+    permalink: /artykuly/:name.html
+
+defaults:
+  - scope:
+      path: ""
+      type: "artykuly"
+    values:
+      layout: "artykul"

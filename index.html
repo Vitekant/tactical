@@ -1,36 +1,18 @@
+---
+layout: null
+title: "Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy"
+---
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- PREVIEW: usun przed startem / remove before launch -->
-  <meta name="robots" content="noindex, nofollow">
-  <title>Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy</title>
-  <meta name="description" content="Praktyczne poradniki prawne dla żołnierzy zawodowych, policjantów i funkcjonariuszy służb mundurowych. Emerytury mundurowe, postępowania dyscyplinarne, odwołania, świadczenia.">
-  <link rel="canonical" href="https://prawomundurowych.pl/">
-  <meta property="og:title" content="Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy">
-  <meta property="og:description" content="Praktyczne poradniki prawne dla żołnierzy zawodowych, policjantów i funkcjonariuszy służb mundurowych.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://prawomundurowych.pl/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+{% include head.html
+   title_full="Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy"
+   description="Praktyczne poradniki prawne dla żołnierzy zawodowych, policjantów i funkcjonariuszy służb mundurowych. Emerytury mundurowe, postępowania dyscyplinarne, odwołania, świadczenia."
+   canonical="https://prawomundurowych.pl/" %}
 </head>
 <body>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="./">
-      <span class="chevrons" aria-hidden="true"></span>
-      prawo <em>mundurowych</em>
-    </a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="nav" id="site-nav" aria-label="Menu główne">
-      <ul id="nav-list"></ul>
-    </nav>
-  </div>
-</header>
+{% include nav.html %}
 
 <main>
   <section class="home">
@@ -70,47 +52,53 @@
       </div>
 
       <div class="home-side">
+        {%- assign latest = site.artykuly | sort: "date" | reverse -%}
         <aside class="side-list">
           <h2>Najnowsze artykuły</h2>
-          <div id="home-latest"></div>
+          <div>
+            {%- for a in latest limit: 3 %}
+            <article>
+              <h3><a href="{{ a.url | relative_url }}">{{ a.title }}</a></h3>
+              <div class="meta"><time datetime="{{ a.date | date: '%Y-%m-%d' }}">{% include data.html date=a.date %}</time></div>
+            </article>
+            {%- endfor %}
+          </div>
         </aside>
 
+        {%- comment -%}
+          "Może Cię zainteresować" — trzy starsze wpisy (poza najnowszą trójką).
+          Jekyll buduje stronę raz, więc zamiast losowania przy każdym wejściu
+          bierzemy kolejne pozycje z listy; zmieniają się przy każdej publikacji.
+        {%- endcomment -%}
+        {%- assign rest = latest | slice: 3, 3 -%}
+        {%- if rest.size == 0 %}{% assign rest = latest %}{% endif -%}
+        {%- if rest.size > 0 %}
         <aside class="side-list side-list--boxed">
           <h2>Może Cię zainteresować</h2>
-          <div id="home-random"></div>
+          <div>
+            {%- for a in rest %}
+            <article>
+              <h3><a href="{{ a.url | relative_url }}">{{ a.title }}</a></h3>
+              <div class="meta">
+                {%- assign a_first = a.sections | first -%}
+                {%- for b in site.data.dzialy -%}{%- for s in b.sections -%}{%- if s.id == a_first %}
+                <a class="cat" href="{{ '/dzialy/' | append: s.id | append: '.html' | relative_url }}"><span class="chevrons" aria-hidden="true"></span>{{ s.label }}</a>
+                {%- endif -%}{%- endfor -%}{%- endfor %}
+                <time datetime="{{ a.date | date: '%Y-%m-%d' }}">{% include data.html date=a.date %}</time>
+              </div>
+            </article>
+            {%- endfor %}
+          </div>
         </aside>
+        {%- endif %}
       </div>
 
-    </div>
-  </section>
-
-  <section class="cta-band">
-    <div class="wrap cta-inner">
-      <div>
-        <h2>Potrzebujesz pomocy prawnej?</h2>
-        <p>Poradniki nie zastąpią analizy Twojej sprawy. Adwokat Piotr Modzelewski prowadzi sprawy żołnierzy i funkcjonariuszy służb mundurowych — od postępowań dyscyplinarnych po spory o świadczenia.</p>
-      </div>
-      <a class="btn" href="https://adwokatmodzelewski.pl/#kontakt" rel="noopener">Skontaktuj się z kancelarią</a>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div>
-      <span class="footer-brand">prawomundurowych.pl</span><br>
-      © 2026 Adwokat Piotr Modzelewski. Treści mają charakter informacyjny i nie stanowią porady prawnej.<br>
-      <span class="footer-credit">Realizacja: Vitech</span>
-    </div>
-    <nav aria-label="Stopka">
-      <a href="dzialy/sily-zbrojne.html">Siły zbrojne</a>
-      <a href="dzialy/sluzby-mundurowe.html">Służby mundurowe</a>
-      <a href="https://adwokatmodzelewski.pl/#kontakt" rel="noopener">Pomoc prawna</a>
-    </nav>
-  </div>
-</footer>
+{% include footer.html %}
 
-<script src="data/articles.js"></script>
-<script src="js/site.js"></script>
+<script src="{{ '/js/site.js' | relative_url }}"></script>
 </body>
 </html>

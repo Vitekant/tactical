@@ -1,0 +1,26 @@
+{%- comment -%}
+  Wspólny <head>. Parametry (opcjonalne, ustawiane przez include):
+    title_full  — pełny <title>; domyślnie "<page.title> — Prawo Mundurowych"
+    description — meta description
+    canonical   — pełny URL kanoniczny
+  PREVIEW: znacznik noindex siedzi w jednym miejscu — usuń przed startem.
+{%- endcomment -%}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- PREVIEW: usun przed startem / remove before launch -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>{{ include.title_full | default: page.title | append: " — Prawo Mundurowych" }}</title>
+<meta name="description" content="{{ include.description | default: page.summary | default: site.description }}">
+<link rel="canonical" href="{{ include.canonical | default: page.url | absolute_url }}">
+
+<meta property="og:title" content="{{ include.og_title | default: page.title }}">
+<meta property="og:description" content="{{ include.description | default: page.summary | default: site.description }}">
+<meta property="og:type" content="{{ include.og_type | default: 'website' }}">
+<meta property="og:url" content="{{ include.canonical | default: page.url | absolute_url }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
