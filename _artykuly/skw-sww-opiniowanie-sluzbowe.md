@@ -1,5 +1,6 @@
 ---
 title: "Opiniowanie służbowe w SKW i SWW — ocena i tryb odwoławczy"
+seo_title: "Opiniowanie służbowe w SKW i SWW — oceny i odwołanie"
 date: 2026-07-01
 sections: [skw-sww]
 summary: "Opiniowanie co 12 miesięcy w służbie przygotowawczej i co 3 lata w stałej, wpływ oceny na utrzymanie poświadczeń bezpieczeństwa oraz odwołanie w terminie 14 dni."

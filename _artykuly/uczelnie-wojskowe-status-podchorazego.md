@@ -1,5 +1,6 @@
 ---
 title: "Rekrutacja na uczelnie wojskowe i status podchorążego"
+seo_title: "Uczelnie wojskowe — rekrutacja i status podchorążego"
 date: 2026-08-01
 sections: [przed]
 summary: "Studia wojskowe dzielą się na dwa różne prawnie etapy: pierwszy rok to dobrowolna zasadnicza służba wojskowa, od drugiego roku podchorąży jest żołnierzem zawodowym. Rekrutacja, uposażenie i skutki rezygnacji."

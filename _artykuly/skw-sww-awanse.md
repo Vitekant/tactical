@@ -1,5 +1,6 @@
 ---
 title: "Awanse w SKW i SWW — korpusy, stopnie i procedury mianowania"
+seo_title: "Awanse w SKW i SWW — korpusy, stopnie, mianowanie"
 date: 2026-07-02
 sections: [skw-sww]
 summary: "Cztery korpusy służb specjalnych, wymagana wysługa w stopniu, kurs oficerski oraz przeszkody — w tym postępowanie sprawdzające z zakresu ochrony informacji niejawnych."

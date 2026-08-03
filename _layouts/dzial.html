@@ -47,7 +47,21 @@
   {%- assign head_intro = cur_branch.intro -%}
   {%- assign head_eyebrow = "Dział" -%}
 {%- endif -%}
-{% include head.html title_full=head_title description=head_intro og_title=head_title %}
+{%- comment -%}
+  Sam `label` ("Policja", "ABW") to za mało na <title> — nikt nie szuka
+  takiej frazy licząc na poradnik prawny. Dodajemy kontekst dopasowany do
+  gałęzi: w wojsku mówimy o żołnierzach, w służbach o funkcjonariuszach.
+{%- endcomment -%}
+{%- if cur_branch.id == 'sily-zbrojne' -%}
+  {%- assign seo_suffix = " — prawa żołnierzy zawodowych" -%}
+{%- else -%}
+  {%- assign seo_suffix = " — prawa funkcjonariuszy" -%}
+{%- endif -%}
+{%- assign seo_head_title = head_title | append: seo_suffix -%}
+{%- if seo_head_title.size > 60 -%}
+  {%- assign seo_head_title = head_title | append: " — poradnik prawny" -%}
+{%- endif -%}
+{% include head.html title_full=seo_head_title description=head_intro og_title=head_title %}
 
 {%- comment -%}
   CollectionPage + ItemList — mówi wyszukiwarce, że to strona zbiorcza

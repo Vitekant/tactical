@@ -1,5 +1,6 @@
 ---
 title: "Przeniesienie służbowe żołnierza zawodowego"
+seo_title: "Przeniesienie służbowe żołnierza zawodowego"
 date: 2026-07-30
 sections: [w-trakcie]
 summary: "Przeniesienie z urzędu i na wniosek żołnierza, najczęstsze przyczyny oraz tryb odwoławczy — 14 dni na odwołanie, przy czym jego wniesienie nie wstrzymuje wykonania rozkazu."

@@ -1,5 +1,6 @@
 ---
 title: "Uprawnienia emerytalne i rentowe policjantów"
+seo_title: "Emerytura policyjna — warunki, renty, odwołania"
 date: 2026-07-16
 sections: [policja]
 summary: "Emerytura policyjna po 15 lub 25 latach w zależności od daty przyjęcia do służby, podstawa wymiaru, renta inwalidzka i rodzinna oraz odwołanie od decyzji ZER MSWiA."

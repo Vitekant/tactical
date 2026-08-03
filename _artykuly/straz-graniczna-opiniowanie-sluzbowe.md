@@ -1,5 +1,6 @@
 ---
 title: "Opiniowanie służbowe funkcjonariuszy Straży Granicznej — procedura i odwołanie"
+seo_title: "Opiniowanie służbowe w SG — oceny i odwołanie"
 date: 2026-07-13
 sections: [straz-graniczna]
 summary: "Opiniowanie okresowe co 3 lata i ad hoc, skala pięciu ocen wraz ze skutkami, odwołanie w terminie 14 dni oraz kontrola sądowoadministracyjna."

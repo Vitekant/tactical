@@ -1,5 +1,6 @@
 ---
 title: "Uprawnienia emerytalne i rentowe funkcjonariuszy Straży Granicznej"
+seo_title: "Emerytura funkcjonariusza SG — warunki i renty"
 date: 2026-07-10
 sections: [straz-graniczna]
 summary: "Emerytura po 15 lub 25 latach zależnie od daty przyjęcia do służby, podstawa wymiaru, renta inwalidzka i rodzinna oraz odwołanie od decyzji ZER MSWiA do sądu okręgowego."

@@ -1,5 +1,6 @@
 ---
 title: "Awanse w Straży Granicznej — rodzaje, warunki i ścieżka kariery"
+seo_title: "Awanse w Straży Granicznej — warunki i stopnie"
 date: 2026-07-14
 sections: [straz-graniczna]
 summary: "Awans w stopniu i na stanowisko, wymagana wysługa w korpusach szeregowych, podoficerów, chorążych i oficerów, awans przedterminowy oraz przeszkody formalne."

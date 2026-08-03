@@ -1,5 +1,6 @@
 ---
 title: "Uprawnienia emerytalne i rentowe funkcjonariuszy SKW i SWW"
+seo_title: "Emerytura funkcjonariusza SKW i SWW — warunki"
 date: 2026-06-28
 sections: [skw-sww]
 summary: "Emerytura po 15 lub 25 latach, korzystniejsze przeliczniki za służbę operacyjno-rozpoznawczą, renty inwalidzka i rodzinna oraz odwołanie od decyzji Wojskowego Biura Emerytalnego."

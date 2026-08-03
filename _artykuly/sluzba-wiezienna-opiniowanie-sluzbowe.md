@@ -1,5 +1,6 @@
 ---
 title: "Opiniowanie służbowe funkcjonariuszy Służby Więziennej — ocena i tryb odwoławczy"
+seo_title: "Opiniowanie służbowe w SW — oceny i odwołanie"
 date: 2026-07-07
 sections: [sluzba-wiezienna]
 summary: "Opiniowanie co 6 miesięcy w służbie przygotowawczej i co 3 lata w stałej, skutki ocen dostatecznej i niedostatecznej oraz odwołanie do Dyrektora Okręgowego SW w terminie 14 dni."

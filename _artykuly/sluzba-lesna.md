@@ -1,5 +1,6 @@
 ---
 title: "Służba Leśna — status prawny, rekrutacja i specyfika zatrudnienia"
+seo_title: "Służba Leśna — status prawny i rekrutacja"
 date: 2026-06-16
 sections: [inne]
 summary: "Jednostka w strukturach Lasów Państwowych łącząca kadrę techniczną ze Strażą Leśną. Wymóg wykształcenia leśnego, roczny staż z egzaminem państwowym i emerytura na zasadach ZUS."

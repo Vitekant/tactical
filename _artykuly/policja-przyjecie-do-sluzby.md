@@ -1,5 +1,6 @@
 ---
 title: "Przyjęcie do służby w Policji — wymagania i przebieg procedury"
+seo_title: "Przyjęcie do służby w Policji — wymagania i etapy"
 date: 2026-07-21
 sections: [policja]
 summary: "Kryteria z art. 25 Ustawy o Policji oraz sześć etapów postępowania kwalifikacyjnego: test wiedzy, sprawność fizyczna, badanie psychologiczne, rozmowa, postępowanie sprawdzające i komisja lekarska."

@@ -1,5 +1,6 @@
 ---
 title: "Sądownictwo wojskowe w Polsce"
+seo_title: "Sądownictwo wojskowe — struktura i przebieg spraw"
 date: 2026-07-23
 sections: [karne-dyscyplinarne]
 summary: "Struktura sądów wojskowych, katalog spraw trafiających przed sąd wojskowy, przebieg postępowania karnego oraz rola obrońcy — wyrok skazujący często oznacza wydalenie ze służby."

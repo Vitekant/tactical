@@ -1,5 +1,6 @@
 ---
 title: "Awanse w Służbie Więziennej — stopnie, stanowiska i przesłanki prawne"
+seo_title: "Awanse w Służbie Więziennej — stopnie i wymogi"
 date: 2026-07-08
 sections: [sluzba-wiezienna]
 summary: "Cztery korpusy Służby Więziennej, wymagana wysługa w każdym z nich, szkolenie w Szkołach Wyższych Wymiaru Sprawiedliwości oraz przeszkody formalne w awansowaniu."

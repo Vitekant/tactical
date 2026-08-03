@@ -1,5 +1,6 @@
 ---
 title: "Procedura powołania do zawodowej służby wojskowej"
+seo_title: "Powołanie do zawodowej służby wojskowej"
 date: 2026-08-03
 sections: [przed]
 summary: "Wymagania wobec kandydatów według korpusów, dwie ścieżki wejścia do służby, procedura rekrutacyjna krok po kroku oraz skutki prawne powołania — w tym wygaśnięcie stosunku pracy."

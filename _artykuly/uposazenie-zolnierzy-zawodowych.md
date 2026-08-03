@@ -1,5 +1,6 @@
 ---
 title: "Należności związane ze służbą — uposażenie żołnierzy zawodowych"
+seo_title: "Uposażenie żołnierza zawodowego — składniki"
 date: 2026-07-29
 sections: [w-trakcie]
 summary: "Jak liczy się uposażenie zasadnicze (kwota bazowa razy mnożnik) oraz jakie dodatki przysługują żołnierzowi: wysługa lat, dodatek za stopień, funkcyjny, służbowy i specjalny."

@@ -1,5 +1,6 @@
 ---
 title: "Zakończenie służby w Policji — tryby i skutki prawne"
+seo_title: "Zwolnienie ze służby w Policji — tryby i odwołanie"
 date: 2026-07-17
 sections: [policja]
 summary: "Przesłanki obligatoryjne i fakultatywne zwolnienia z art. 41 Ustawy o Policji oraz tryb odwoławczy — 14 dni na odwołanie, którego wniesienie wstrzymuje wykonanie decyzji."

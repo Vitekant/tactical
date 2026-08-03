@@ -1,5 +1,6 @@
 ---
 title: "Odpowiedzialność dyscyplinarna żołnierza zawodowego"
+seo_title: "Odpowiedzialność dyscyplinarna żołnierza"
 date: 2026-07-22
 sections: [karne-dyscyplinarne, w-trakcie]
 summary: "Za co grozi odpowiedzialność dyscyplinarna, jak przebiega postępowanie od czynności wyjaśniających po orzeczenie, katalog kar oraz rola adwokata na każdym etapie sprawy."

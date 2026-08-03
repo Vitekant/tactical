@@ -1,9 +1,15 @@
 {%- comment -%}
   Wspólny <head>. Parametry (opcjonalne, ustawiane przez include):
-    title_full  — pełny <title>; domyślnie "<page.title> — Prawo Mundurowych"
+    title_full  — pełny <title>; nadpisuje wszystko
     description — meta description
     canonical   — pełny URL kanoniczny
-  PREVIEW: znacznik noindex siedzi w jednym miejscu — usuń przed startem.
+
+  <title> budujemy tak, żeby zmieścił się w ~60 znakach, które Google
+  pokazuje w wynikach:
+    1. `seo_title` z front-mattera (krótki wariant) — jeśli jest,
+    2. w przeciwnym razie `title`,
+    3. sufiks " — Prawo Mundurowych" doklejamy TYLKO wtedy, gdy tytuł
+       jest na tyle krótki, że całość nadal się mieści (do 40 znaków).
 {%- endcomment -%}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,13 +23,32 @@
 <meta name="robots" content="noindex, nofollow">
 {%- endif %}
 
-<title>{{ include.title_full | default: page.title | append: " — Prawo Mundurowych" }}</title>
-<meta name="description" content="{{ include.description | default: page.summary | default: site.description }}">
+{%- assign base_title = page.seo_title | default: page.title -%}
+{%- if include.title_full -%}
+  {%- assign final_title = include.title_full -%}
+{%- elsif base_title.size <= 40 -%}
+  {%- assign final_title = base_title | append: " — Prawo Mundurowych" -%}
+{%- else -%}
+  {%- assign final_title = base_title -%}
+{%- endif -%}
+{%- comment -%}
+  Meta description: Google wyświetla ok. 155–160 znaków. `summary` bywa
+  dłuższe, bo służy też jako zajawka na listach artykułów — dlatego tutaj
+  (i tylko tutaj) przycinamy je do pełnego słowa.
+{%- endcomment -%}
+{%- assign raw_desc = include.description | default: page.summary | default: site.description -%}
+{%- if raw_desc.size > 160 -%}
+  {%- assign meta_desc = raw_desc | truncate: 157, "…" -%}
+{%- else -%}
+  {%- assign meta_desc = raw_desc -%}
+{%- endif -%}
+<title>{{ final_title }}</title>
+<meta name="description" content="{{ meta_desc }}">
 <link rel="canonical" href="{{ include.canonical | default: page.url | absolute_url }}">
 
 {%- assign og_img = '/assets/og-image.jpg' | absolute_url -%}
 <meta property="og:title" content="{{ include.og_title | default: page.title }}">
-<meta property="og:description" content="{{ include.description | default: page.summary | default: site.description }}">
+<meta property="og:description" content="{{ meta_desc }}">
 <meta property="og:type" content="{{ include.og_type | default: 'website' }}">
 <meta property="og:url" content="{{ include.canonical | default: page.url | absolute_url }}">
 <meta property="og:site_name" content="{{ site.title }}">
@@ -39,7 +64,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ include.og_title | default: page.title }}">
-<meta name="twitter:description" content="{{ include.description | default: page.summary | default: site.description }}">
+<meta name="twitter:description" content="{{ meta_desc }}">
 <meta name="twitter:image" content="{{ og_img }}">
 
 {%- comment -%}

@@ -1,5 +1,6 @@
 ---
 title: "Zakończenie służby w SKW i SWW — przesłanki i tryb zwolnienia"
+seo_title: "Zwolnienie ze służby w SKW i SWW — przesłanki"
 date: 2026-06-29
 sections: [skw-sww]
 summary: "Przesłanki z art. 64 Ustawy o SKW oraz SWW — w tym cofnięcie poświadczenia bezpieczeństwa — oraz odwołanie do Ministra Obrony Narodowej w terminie 14 dni."

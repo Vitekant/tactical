@@ -1,5 +1,6 @@
 ---
 title: "Ocena zdolności do służby wojskowej i procedura odwoławcza"
+seo_title: "Ocena zdolności do służby wojskowej — odwołanie"
 date: 2026-08-02
 sections: [przed]
 summary: "Jak wyglądają badania przed Wojskową Komisją Lekarską i w pracowni psychologicznej oraz jak odwołać się od orzeczenia — terminy 14 dni do CWKL i 30 dni na skargę do WSA."

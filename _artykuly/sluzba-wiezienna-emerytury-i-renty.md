@@ -1,5 +1,6 @@
 ---
 title: "Uprawnienia emerytalne i rentowe funkcjonariuszy Służby Więziennej"
+seo_title: "Emerytura funkcjonariusza SW — warunki i renty"
 date: 2026-07-04
 sections: [sluzba-wiezienna]
 summary: "Emerytura po 15 lub 25 latach służby, przeliczniki stażu za pracę w bezpośrednim kontakcie z osadzonymi, renty inwalidzka i rodzinna oraz odwołanie od decyzji ZER MSWiA."

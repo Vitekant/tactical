@@ -1,5 +1,6 @@
 ---
 title: "Straż Ochrony Kolei (SOK) — rekrutacja, uprawnienia i status prawny"
+seo_title: "Straż Ochrony Kolei — rekrutacja i status prawny"
 date: 2026-06-19
 sections: [inne]
 summary: "Formacja w strukturach PKP PLK S.A. zatrudniana na umowę o pracę. Ochrona prawna funkcjonariusza publicznego przy czynnościach służbowych, ale ubezpieczenie emerytalne w ZUS."

@@ -1,5 +1,6 @@
 ---
 title: "Opiniowanie służbowe policjantów — procedura i odwołanie"
+seo_title: "Opiniowanie służbowe policjanta — oceny i odwołanie"
 date: 2026-07-19
 sections: [policja]
 summary: "Skala ocen od wzorowej do niedostatecznej i jej skutki — dwie oceny niedostateczne w ciągu 12 miesięcy to podstawa obligatoryjnego zwolnienia. Odwołanie w terminie 14 dni i droga do WSA."

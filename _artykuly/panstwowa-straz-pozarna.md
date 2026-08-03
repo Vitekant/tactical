@@ -1,5 +1,6 @@
 ---
 title: "Państwowa Straż Pożarna (PSP) — rekrutacja, służba i zaopatrzenie"
+seo_title: "PSP — rekrutacja, służba i emerytura pożarnicza"
 date: 2026-06-18
 sections: [inne]
 summary: "Dwutorowy nabór — z wolnego rynku lub przez szkoły PSP, wymagający test sprawnościowy z próbą wysokościową i pływacką, system zmianowy oraz mundurowy system emerytalny."

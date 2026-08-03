@@ -1,5 +1,6 @@
 ---
 title: "Uprawnienia emerytalne i rentowe funkcjonariuszy ABW"
+seo_title: "Emerytura funkcjonariusza ABW — warunki i renty"
 date: 2026-06-22
 sections: [abw]
 summary: "Emerytura po 15 lub 25 latach, korzystniejsze przeliczniki dla pionów operacyjno-śledczych i wywiadowczych, renty inwalidzka i rodzinna oraz odwołanie od decyzji ZER MSWiA."

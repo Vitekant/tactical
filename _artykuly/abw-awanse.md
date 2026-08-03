@@ -1,5 +1,6 @@
 ---
 title: "Awanse w Agencji Bezpieczeństwa Wewnętrznego — zasady i wymogi"
+seo_title: "Awanse w ABW — korpusy, stopnie i wymogi"
 date: 2026-06-26
 sections: [abw]
 summary: "Cztery korpusy ABW, wymagany staż w stopniu, szkolenie oficerskie w Centralnym Ośrodku Szkolenia ABW oraz przeszkody prawne uniemożliwiające awansowanie."

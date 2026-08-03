@@ -1,5 +1,6 @@
 ---
 title: "Ponowne ubieganie się o przyjęcie do służby — powrót do wojska"
+seo_title: "Powrót do wojska — ponowne przyjęcie do służby"
 date: 2026-07-24
 sections: [po-zakonczeniu]
 summary: "Warunki formalne powrotu byłego żołnierza zawodowego, przebieg skróconej procedury kwalifikacyjnej oraz skutki: zachowanie stopnia, doliczenie wysługi i wstrzymanie emerytury wojskowej."

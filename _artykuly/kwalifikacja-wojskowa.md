@@ -1,5 +1,6 @@
 ---
 title: "Kwalifikacja wojskowa — kto podlega, jak przebiega i co grozi za niestawienie się"
+seo_title: "Kwalifikacja wojskowa — kto podlega i jak przebiega"
 date: 2026-08-03
 sections: [przed]
 summary: "Kwalifikacja wojskowa zastąpiła dawny pobór. Kto ma obowiązek stawiennictwa, jakie organy prowadzą kwalifikację, jak wygląda krok po kroku i jakie kategorie zdrowia można otrzymać."

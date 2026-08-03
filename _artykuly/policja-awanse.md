@@ -1,5 +1,6 @@
 ---
 title: "Awanse w Policji — rodzaje, warunki i ścieżka kariery"
+seo_title: "Awanse w Policji — warunki i ścieżka kariery"
 date: 2026-07-20
 sections: [policja]
 summary: "Awans w stopniu i awans stanowiskowy, wymagana wysługa lat w poszczególnych korpusach, awans przedterminowy oraz wstrzymanie awansu na czas postępowania karnego lub dyscyplinarnego."

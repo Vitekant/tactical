@@ -1,5 +1,6 @@
 ---
 title: "Inne należności związane ze służbą — mieszkanie, przesiedlenie, mundurówka"
+seo_title: "Świadczenia żołnierza — mieszkanie i mundurówka"
 date: 2026-07-28
 sections: [w-trakcie]
 summary: "Świadczenia pozapłacowe żołnierza zawodowego: trzy formy zakwaterowania realizowane przez AMW, pakiet przesiedleniowy, równoważnik za umundurowanie oraz wsparcie wypoczynku i zapomogi."

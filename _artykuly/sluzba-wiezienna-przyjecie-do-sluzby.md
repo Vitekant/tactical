@@ -1,5 +1,6 @@
 ---
 title: "Przyjęcie do służby w Służbie Więziennej — wymagania i przebieg rekrutacji"
+seo_title: "Przyjęcie do Służby Więziennej — wymogi i nabór"
 date: 2026-07-09
 sections: [sluzba-wiezienna]
 summary: "Wymogi z Ustawy o Służbie Więziennej oraz sześć etapów naboru — od weryfikacji dokumentów po komisję lekarską — zakończonych mianowaniem do dwuletniej służby przygotowawczej."

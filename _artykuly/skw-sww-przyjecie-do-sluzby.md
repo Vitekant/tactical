@@ -1,5 +1,6 @@
 ---
 title: "Przyjęcie do służby w SKW i SWW — kryteria i przebieg rekrutacji"
+seo_title: "Przyjęcie do SKW i SWW — kryteria i rekrutacja"
 date: 2026-07-03
 sections: [skw-sww]
 summary: "Wymogi z Ustawy o SKW oraz SWW i sześć etapów weryfikacji, w tym badanie wariograficzne i rozszerzone postępowanie sprawdzające do klauzuli „Ściśle Tajne”."

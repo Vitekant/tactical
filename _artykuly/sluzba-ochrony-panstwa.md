@@ -1,5 +1,6 @@
 ---
 title: "Służba Ochrony Państwa (SOP) — rekrutacja, zadania operacyjne i zaopatrzenie"
+seo_title: "SOP — rekrutacja, przebieg służby i zaopatrzenie"
 date: 2026-06-20
 sections: [inne]
 summary: "Formacja powstała w miejsce BOR. Rygorystyczna rekrutacja z badaniem wariograficznym, trzyletnia służba przygotowawcza oraz objęcie mundurowym systemem emerytalnym."

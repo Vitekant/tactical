@@ -1,5 +1,6 @@
 ---
 title: "Uposażenie funkcjonariuszy SKW i SWW — składniki i świadczenia pieniężne"
+seo_title: "Uposażenie w SKW i SWW — składniki i dodatki"
 date: 2026-06-30
 sections: [skw-sww]
 summary: "Uposażenie zasadnicze, dodatek specjalny i operacyjny, wysługa lat do 32%, nagroda roczna oraz zasady obniżenia uposażenia przy zawieszeniu w czynnościach służbowych."

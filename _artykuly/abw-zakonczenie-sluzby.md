@@ -1,5 +1,6 @@
 ---
 title: "Zakończenie służby w ABW — przesłanki i tryb zwolnienia"
+seo_title: "Zwolnienie ze służby w ABW — przesłanki i tryb"
 date: 2026-06-23
 sections: [abw]
 summary: "Przesłanki obligatoryjne i fakultatywne z art. 60 Ustawy o ABW oraz AW, w tym cofnięcie poświadczenia bezpieczeństwa, oraz wniosek o ponowne rozpatrzenie sprawy w terminie 14 dni."

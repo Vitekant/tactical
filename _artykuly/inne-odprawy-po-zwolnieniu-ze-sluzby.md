@@ -1,5 +1,6 @@
 ---
 title: "Inne odprawy i świadczenia po zwolnieniu ze służby"
+seo_title: "Odprawy po zwolnieniu ze służby wojskowej"
 date: 2026-07-25
 sections: [po-zakonczeniu]
 summary: "Odprawa pieniężna rosnąca ze stażem — od 100% do maksymalnie 600% uposażenia, świadczenie pieniężne przez rok po zwolnieniu, ekwiwalent za urlopy oraz pomoc rekonwersyjna."

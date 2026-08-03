@@ -1,5 +1,6 @@
 ---
 title: "Zakończenie służby w Straży Granicznej — tryby i skutki prawne"
+seo_title: "Zwolnienie ze służby w SG — tryby i odwołanie"
 date: 2026-07-11
 sections: [straz-graniczna]
 summary: "Przesłanki obligatoryjne i fakultatywne z art. 45 Ustawy o SG — w tym zrzeczenie się obywatelstwa — oraz odwołanie w terminie 14 dni wstrzymujące wykonanie decyzji."

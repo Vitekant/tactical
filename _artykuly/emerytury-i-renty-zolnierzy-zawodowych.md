@@ -1,5 +1,6 @@
 ---
 title: "Emerytury i renty żołnierzy zawodowych"
+seo_title: "Emerytura wojskowa — warunki, renty, WBE"
 date: 2026-07-27
 sections: [po-zakonczeniu]
 summary: "Zaopatrzenie emerytalne wypłacane przez WBE: 15 lat służby dla powołanych przed 2013 r. i 25 lat dla powołanych później, podstawa wymiaru, limit 75% oraz renty inwalidzkie i rodzinne."

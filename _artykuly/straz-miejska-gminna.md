@@ -1,5 +1,6 @@
 ---
 title: "Straż Miejska (Gminna) — rekrutacja, uprawnienia i przebieg służby"
+seo_title: "Straż Miejska — rekrutacja, uprawnienia, emerytura"
 date: 2026-06-21
 sections: [inne]
 summary: "Samorządowa formacja porządkowa zatrudniana na umowę o pracę. Wymogi naboru, uprawnienia strażnika, zasady wynagradzania — oraz brak mundurowego systemu emerytalnego."

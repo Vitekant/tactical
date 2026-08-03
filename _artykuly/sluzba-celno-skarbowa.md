@@ -1,5 +1,6 @@
 ---
 title: "Służba Celno-Skarbowa — zasady rekrutacji, uprawnienia i pragmatyka"
+seo_title: "Służba Celno-Skarbowa — nabór i emerytura mundurowa"
 date: 2026-06-17
 sections: [inne]
 summary: "Formacja w strukturach KAS: otwarty konkurs prowadzony przez Izby Administracji Skarbowej, dwuletnia służba przygotowawcza oraz prawo do emerytury mundurowej."

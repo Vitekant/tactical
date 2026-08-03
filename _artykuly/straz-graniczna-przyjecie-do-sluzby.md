@@ -1,5 +1,6 @@
 ---
 title: "Przyjęcie do służby w Straży Granicznej — wymagania i przebieg procedury"
+seo_title: "Przyjęcie do Straży Granicznej — wymagania i etapy"
 date: 2026-07-15
 sections: [straz-graniczna]
 summary: "Wymogi z art. 31 Ustawy o SG oraz dwuetapowa rekrutacja: badania psychofizjologiczne i postępowanie sprawdzające w jednostce, następnie testy wiedzy, języka i sprawności w ośrodku szkolenia."

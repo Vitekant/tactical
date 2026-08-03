@@ -1,5 +1,6 @@
 ---
 title: "Odprawa mieszkaniowa żołnierza zawodowego"
+seo_title: "Odprawa mieszkaniowa żołnierza — komu i ile"
 date: 2026-07-26
 sections: [po-zakonczeniu]
 summary: "Jednorazowa wypłata z AMW przy zwolnieniu ze służby: komu przysługuje, kto jest jej pozbawiony oraz jak liczy się jej wysokość — norma mieszkaniowa, liczba norm i współczynnik wysługi lat."

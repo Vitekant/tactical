@@ -1,5 +1,6 @@
 ---
 title: "Zakończenie służby w Służbie Więziennej — przesłanki i tryb rozwiązania stosunku służbowego"
+seo_title: "Zwolnienie ze Służby Więziennej — tryby i odwołanie"
 date: 2026-07-05
 sections: [sluzba-wiezienna]
 summary: "Przesłanki obligatoryjne i fakultatywne z art. 96 Ustawy o SW oraz odwołanie do Dyrektora Okręgowego SW w terminie 14 dni, wstrzymujące wykonanie decyzji."

@@ -1,5 +1,6 @@
 ---
 title: "Mianowanie na wyższy stopień wojskowy lub służbowy"
+seo_title: "Mianowanie na wyższy stopień wojskowy"
 date: 2026-07-31
 sections: [w-trakcie]
 summary: "Warunki awansu: wysługa lat, opinia służbowa i kwalifikacje zawodowe. Tryb zwyczajny i wyróżniający oraz wpływ postępowania dyscyplinarnego lub karnego na procedurę mianowania."

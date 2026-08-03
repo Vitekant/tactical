@@ -1,5 +1,6 @@
 ---
 title: "Uposażenie policjantów — składniki, dodatki i zasady wypłaty"
+seo_title: "Uposażenie policjanta — składniki i dodatki"
 date: 2026-07-18
 sections: [policja]
 summary: "Uposażenie zasadnicze, dodatek za stopień i wysługę lat (od 2% do 32%), dodatki służbowy i funkcyjny, ekwiwalent za brak lokalu, nagroda roczna oraz zasady obniżenia uposażenia."

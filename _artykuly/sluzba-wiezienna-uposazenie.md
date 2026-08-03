@@ -1,5 +1,6 @@
 ---
 title: "Uposażenie funkcjonariuszy Służby Więziennej — struktura i składniki finansowe"
+seo_title: "Uposażenie funkcjonariusza SW — struktura i dodatki"
 date: 2026-07-06
 sections: [sluzba-wiezienna]
 summary: "Uposażenie zasadnicze i dodatki stałe, nagroda roczna, równoważnik za brak lokalu, mundurówka oraz zasady redukcji uposażenia na zwolnieniu i przy zawieszeniu w czynnościach."

@@ -1,5 +1,6 @@
 ---
 title: "Uposażenie funkcjonariuszy Straży Granicznej — składniki, dodatki i zasady wypłaty"
+seo_title: "Uposażenie funkcjonariusza SG — składniki i dodatki"
 date: 2026-07-12
 sections: [straz-graniczna]
 summary: "Uposażenie zasadnicze, dodatki za stopień, wysługę lat, służbowy, funkcyjny i graniczny, a także nagroda roczna, równoważniki mieszkaniowe i nagroda jubileuszowa."

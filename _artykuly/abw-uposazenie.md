@@ -1,5 +1,6 @@
 ---
 title: "Uposażenie funkcjonariuszy ABW — struktura wynagrodzenia i dodatki"
+seo_title: "Uposażenie funkcjonariusza ABW — struktura i dodatki"
 date: 2026-06-24
 sections: [abw]
 summary: "Uposażenie zasadnicze, dodatki za stopień i wysługę lat do 32%, dodatek specjalny za działania operacyjne i cyberbezpieczeństwo oraz zasady redukcji uposażenia."

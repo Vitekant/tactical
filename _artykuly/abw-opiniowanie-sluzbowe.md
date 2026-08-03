@@ -1,5 +1,6 @@
 ---
 title: "Opiniowanie służbowe funkcjonariuszy ABW — procedura i odwołanie"
+seo_title: "Opiniowanie służbowe w ABW — oceny i odwołanie"
 date: 2026-06-25
 sections: [abw]
 summary: "Opiniowanie co 12 miesięcy w służbie przygotowawczej i co 3 lata w stałej, skala pięciu ocen wraz ze skutkami oraz odwołanie w terminie 14 dni i skarga do WSA."

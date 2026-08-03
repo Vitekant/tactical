@@ -1,5 +1,6 @@
 ---
 title: "Przyjęcie do służby w ABW — wymogi prawne i etapowa weryfikacja"
+seo_title: "Przyjęcie do służby w ABW — wymogi i weryfikacja"
 date: 2026-06-27
 sections: [abw]
 summary: "Kryteria z Ustawy o ABW oraz AW i pięć etapów rekrutacji, w tym badanie na poligrafie i rozszerzona procedura sprawdzająca do klauzuli „Ściśle Tajne”."
