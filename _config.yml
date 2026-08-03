@@ -14,13 +14,16 @@ url: "https://prawomundurowych.pl"
 lang: pl
 
 # =====================================================================
-# PRZED URUCHOMIENIEM SERWISU ZMIEŃ NA false
+# Tryb podglądowy
 # ---------------------------------------------------------------------
 # true  = wszystkie strony dostają <meta name="robots" content="noindex">
-#         (wersja podglądowa — Google nie zaindeksuje serwisu)
+#         (Google nie zaindeksuje serwisu)
 # false = strony normalnie się indeksują
+#
+# Serwis jest uruchomiony — wartość false. Strona 404 pozostaje
+# nieindeksowana niezależnie od tego ustawienia (noindex: true w 404.html).
 # =====================================================================
-preview: true
+preview: false
 
 markdown: kramdown
 
