@@ -56,6 +56,12 @@
       "galaz_nazwa": "Służby mundurowe"
     },
     {
+      "id": "abw",
+      "nazwa": "ABW",
+      "galaz": "sluzby-mundurowe",
+      "galaz_nazwa": "Służby mundurowe"
+    },
+    {
       "id": "inne",
       "nazwa": "Inne służby",
       "galaz": "sluzby-mundurowe",

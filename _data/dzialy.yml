@@ -71,7 +71,11 @@
       page: skw-sww
       label: "SKW i SWW"
       intro: "Służba w Służbie Kontrwywiadu Wojskowego i Służbie Wywiadu Wojskowego — specyfika stosunku służbowego i postępowań."
+    - id: abw
+      page: abw
+      label: "ABW"
+      intro: "Służba w Agencji Bezpieczeństwa Wewnętrznego: rekrutacja, awanse, opiniowanie, uposażenie oraz zaopatrzenie emerytalne."
     - id: inne
       page: inne-sluzby
       label: "Inne służby"
-      intro: "ABW, AW, CBA, SOP, PSP, KAS i pozostałe formacje — zagadnienia wspólne dla funkcjonariuszy służb mundurowych."
+      intro: "Straż Miejska, SOP, Straż Ochrony Kolei, Państwowa Straż Pożarna, Służba Celno-Skarbowa i Służba Leśna — formacje o odrębnym statusie prawnym."
