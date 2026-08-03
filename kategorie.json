@@ -26,6 +26,12 @@
       "galaz_nazwa": "Siły zbrojne"
     },
     {
+      "id": "karne-dyscyplinarne",
+      "nazwa": "Sprawy karne i dyscyplinarne",
+      "galaz": "sily-zbrojne",
+      "galaz_nazwa": "Siły zbrojne"
+    },
+    {
       "id": "policja",
       "nazwa": "Policja",
       "galaz": "sluzby-mundurowe",

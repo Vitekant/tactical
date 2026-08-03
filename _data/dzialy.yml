@@ -44,6 +44,10 @@
       page: sily-zbrojne-po-zakonczeniu
       label: "Po zakończeniu służby"
       intro: "Zwolnienie ze służby, zaopatrzenie emerytalne żołnierzy, odprawy i świadczenia należne po odejściu z wojska."
+    - id: karne-dyscyplinarne
+      page: sily-zbrojne-karne-dyscyplinarne
+      label: "Sprawy karne i dyscyplinarne"
+      intro: "Sądownictwo wojskowe i postępowania dyscyplinarne żołnierzy zawodowych — przebieg spraw, prawa obwinionego i rola obrońcy."
 
 - id: sluzby-mundurowe
   label: "Służby mundurowe"
