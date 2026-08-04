@@ -30,10 +30,10 @@ przy każdym pushu na `main`. Nie trzeba nic instalować lokalnie.
 
 **Struktura menu** pochodzi w całości z `_data/dzialy.yml`. Dwie gałęzie:
 
-| Gałąź              | Podział wg  | Działy                                                              |
-|--------------------|-------------|---------------------------------------------------------------------|
-| `sily-zbrojne`     | etap służby | `przed`, `w-trakcie`, `po-zakonczeniu`                              |
-| `sluzby-mundurowe` | formacja    | `policja`, `straz-graniczna`, `sluzba-wiezienna`, `skw-sww`, `inne` |
+| Gałąź              | Podział wg  | Działy                                                                            |
+|--------------------|-------------|-----------------------------------------------------------------------------------|
+| `sily-zbrojne`     | etap służby | `przed`, `w-trakcie`, `po-zakonczeniu`, `karne-dyscyplinarne`                     |
+| `sluzby-mundurowe` | formacja    | `policja`, `straz-graniczna`, `sluzba-wiezienna`, `skw-sww`, `abw`, `inne`        |
 
 **Artykuł podaje tylko działy**, np. `sections: [w-trakcie, policja]`.
 Gałąź wylicza się automatycznie, a artykuł może należeć do kilku działów —
@@ -42,8 +42,35 @@ także z różnych gałęzi. Pojawi się wtedy na wszystkich odpowiednich listac
 Pierwszy dział z listy jest **wiodący**: jego nazwa trafia nad tytuł artykułu
 i to jego spis treści widać z boku.
 
-**Adresy stron nie zmieniły się** przy migracji na Jekylla —
-`/artykuly/<slug>.html` i `/dzialy/<slug>.html` działają jak wcześniej.
+### Tytuły w wynikach wyszukiwania
+
+Google pokazuje ok. 60 znaków tytułu. Dlatego artykuł ma dwa pola:
+
+- `title` — pełny tytuł, widoczny jako nagłówek na stronie,
+- `seo_title` — krótszy wariant trafiający do `<title>` (opcjonalny;
+  gdy go brak, używany jest `title`).
+
+Meta description przycinana jest automatycznie do ~157 znaków, więc pole
+`summary` może być dłuższe — na listach artykułów czyta się lepiej.
+
+## Dodanie nowego działu
+
+1. Dopisz wpis do `sections` właściwej gałęzi w `_data/dzialy.yml`
+   (pola: `id`, `page`, `label`, `intro`).
+2. Utwórz plik `dzialy/<page>.html` o treści:
+
+   ```
+   ---
+   layout: dzial
+   section: <id-nowego-dzialu>
+   ---
+   ```
+
+3. Dopisz dział do `kategorie.json`, żeby ściąga dla autora pozostała aktualna.
+
+> `id` to identyfikator używany w polu `sections` artykułów, `page` to nazwa
+> pliku w `dzialy/`. Trzymamy je osobno, bo adresy stron pochodzą sprzed
+> migracji na Jekylla i nie wolno ich zmieniać.
 
 ## Testowanie lokalne (opcjonalne)
 
@@ -57,31 +84,24 @@ docker run --rm -v "${PWD}:/srv/jekyll" -p 4000:4000 jekyll/jekyll:4.2.2 \
 
 Strona pod `http://localhost:4000`.
 
-## Uwaga — przed startem
+## SEO — stan obecny
 
-1. **Odblokuj indeksowanie.** W `_config.yml` zmień `preview: true`
-   na `preview: false`. To jedyna zmiana — znika wtedy `noindex` ze
-   wszystkich stron (poza 404, która ma zostać nieindeksowana).
-2. **Zweryfikuj szkice.** Teksty oznaczone `[SZKIC...]` czekają na
-   potwierdzenie podstaw prawnych i terminów.
-3. **Zgłoś serwis** w Google Search Console i wyślij
-   `https://prawomundurowych.pl/sitemap.xml`.
-
-## SEO — co jest zrobione
+Serwis jest uruchomiony i indeksowany (`preview: false` w `_config.yml`).
+Zrobione:
 
 - unikalny `title` i `description` na każdej stronie, `canonical`, `lang="pl"`,
-  dokładnie jeden `<h1>`,
-- `sitemap.xml` i `robots.txt` (sitemap generuje się sam, z datami `lastmod`),
+  dokładnie jeden `<h1>`, tytuły mieszczące się w wynikach wyszukiwania,
+- `sitemap.xml` i `robots.txt` — sitemap generuje się sam, z datami `lastmod`,
 - dane strukturalne JSON-LD: `Article` (wpisy), `CollectionPage` + `ItemList`
   (działy), `WebSite` + `LegalService` (strona główna) oraz `BreadcrumbList`
   wszędzie — to z niej Google buduje ścieżkę nawigacji w wynikach,
-- Open Graph i Twitter Card z obrazkiem `assets/og-image.jpg` (podgląd linku
-  na Facebooku, LinkedInie, WhatsAppie),
+- Open Graph i Twitter Card z obrazkiem `assets/og-image.jpg`,
 - favikona (SVG + PNG + `favicon.ico`),
-- adresy stron nie zmieniły się od czasu migracji na Jekylla.
+- HTTPS z przekierowaniem z `http://` (Enforce HTTPS w ustawieniach Pages).
 
-Zostaje do rozważenia w przyszłości: własne obrazki OG dla pojedynczych
-wpisów oraz schema `FAQPage` w artykułach o strukturze pytań i odpowiedzi.
+Do rozważenia w przyszłości: własne obrazki OG dla pojedynczych wpisów,
+schema `FAQPage` w artykułach o strukturze pytań i odpowiedzi oraz
+wzajemne linkowanie pokrewnych artykułów między formacjami.
 
 ## Deploy
 

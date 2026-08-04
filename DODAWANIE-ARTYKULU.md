@@ -26,6 +26,7 @@ Po ok. 1–2 minutach artykuł jest na stronie.
 ```markdown
 ---
 title: "Tytuł artykułu — pełne brzmienie"
+seo_title: "Krótszy tytuł do Google"
 date: 2026-08-15
 sections: [policja]
 summary: "Jedno–dwa zdania streszczenia. Pojawia się na listach artykułów i w Google."
@@ -58,12 +59,27 @@ Lista numerowana:
 
 ## Pola nagłówka (między `---`)
 
-| Pole       | Obowiązkowe | Opis |
-|------------|-------------|------|
-| `title`    | tak | Tytuł w cudzysłowie. Wyświetla się jako nagłówek H1 i w Google. |
-| `date`     | tak | Format `RRRR-MM-DD`. Decyduje o kolejności („Najnowsze artykuły"). |
-| `sections` | tak | Lista działów w nawiasach kwadratowych — patrz niżej. |
-| `summary`  | tak | Streszczenie na listy i do meta description (ok. 150–200 znaków). |
+| Pole        | Obowiązkowe | Opis |
+|-------------|-------------|------|
+| `title`     | tak | Pełny tytuł w cudzysłowie. Wyświetla się jako nagłówek na stronie. |
+| `seo_title` | nie | Krótszy wariant (do 60 znaków) trafiający do wyników Google. Gdy go brak, używany jest `title`. |
+| `date`      | tak | Format `RRRR-MM-DD`. Decyduje o kolejności („Najnowsze artykuły"). |
+| `sections`  | tak | Lista działów w nawiasach kwadratowych — patrz niżej. |
+| `summary`   | tak | Streszczenie na listy artykułów i do opisu w Google. |
+
+### Dlaczego dwa tytuły?
+
+Google pokazuje w wynikach około **60 znaków** tytułu — dłuższe są ucinane
+w połowie słowa. Pełne, opisowe tytuły dobrze czyta się na stronie, ale
+w wyszukiwarce bywają za długie. Dlatego:
+
+- `title` — pełny, widoczny jako nagłówek artykułu,
+- `seo_title` — skrót, który zmieści się w wynikach wyszukiwania.
+
+Jeśli tytuł artykułu i tak jest krótki, `seo_title` można pominąć.
+
+Opis (`summary`) przycinany jest automatycznie do ~157 znaków w meta
+description, więc może być dłuższy — na listach artykułów czyta się lepiej.
 
 ---
 
@@ -95,6 +111,7 @@ wpisać dział najlepiej pasujący do tematu.
 | `przed` | Przed rozpoczęciem służby |
 | `w-trakcie` | W trakcie służby |
 | `po-zakonczeniu` | Po zakończeniu służby |
+| `karne-dyscyplinarne` | Sprawy karne i dyscyplinarne |
 
 **Służby mundurowe**
 
@@ -104,7 +121,8 @@ wpisać dział najlepiej pasujący do tematu.
 | `straz-graniczna` | Straż Graniczna |
 | `sluzba-wiezienna` | Służba Więzienna |
 | `skw-sww` | SKW i SWW |
-| `inne` | Inne służby |
+| `abw` | ABW |
+| `inne` | Inne służby (Straż Miejska, SOP, SOK, PSP, KAS, Służba Leśna) |
 
 > Ta sama lista, w formie do skopiowania, jest w pliku **`kategorie.json`**
 > w katalogu głównym repozytorium.
