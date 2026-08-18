@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Prawo Mundurowych">
-  <!-- Znak serwisu: dwa szewrony (dystynkcja) — ten sam motyw co .chevrons w styles.css.
-       Kolory: tło paper (--bg), szewrony w zieleni (--green) dla czytelności w 16 px. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Prawo Mundurowych">
+  <!-- Znak serwisu: dwa szewrony (dystynkcja), ten sam motyw co .chevrons w styles.css.
+       Tlo: kolor paper, szewrony w zieleni - dla czytelnosci w 16 px.
+       Uwaga: w komentarzu XML nie moze wystapic podwojny minus. -->
   <rect width="64" height="64" rx="10" fill="#fbfbf8"/>
   <g fill="none" stroke="#3e4d3a" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter">
     <polyline points="16,31 32,17 48,31"/>

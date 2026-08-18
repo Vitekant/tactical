@@ -69,9 +69,14 @@
 
 {%- comment -%}
   Favikona: znak szewronów (ten sam motyw co .chevrons w styles.css).
-  SVG dla nowoczesnych przeglądarek, PNG jako zapas, /favicon.ico w katalogu
-  głównym — po niego Firefox i starsze przeglądarki sięgają automatycznie.
+  Kolejność ma znaczenie — przeglądarka wybiera pierwszy format, który
+  rozumie: .ico (uniwersalny), potem SVG, potem PNG.
+
+  UWAGA: SVG musi mieć jawne width/height, nie tylko viewBox. Firefox bez
+  nich nie potrafi ustalić rozmiaru i w ogóle nie rysuje ikony (Chrome
+  radzi sobie samo, więc błąd łatwo przeoczyć).
 {%- endcomment -%}
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/icon-32.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/icon-16.png' | relative_url }}">
