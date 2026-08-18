@@ -1,7 +1,7 @@
 ---
 title: "Świadczenia na rzecz obrony — osobiste i rzeczowe"
 seo_title: "Świadczenia na rzecz obrony — obowiązki i odwołanie"
-date: 2026-07-30
+date: 2026-08-18
 sections: [dla-cywila]
 summary: "Obowiązki nakładane na obywateli i przedsiębiorców: prace na rzecz obrony oraz udostępnienie pojazdów i nieruchomości. Odszkodowanie, odwołanie do wojewody i sankcje za uchylanie się."
 ---

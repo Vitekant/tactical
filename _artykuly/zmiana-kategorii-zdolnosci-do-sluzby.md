@@ -1,7 +1,7 @@
 ---
 title: "Ubieganie się o zmianę kategorii zdolności do służby wojskowej"
 seo_title: "Zmiana kategorii wojskowej — wniosek i procedura"
-date: 2026-08-03
+date: 2026-08-18
 sections: [dla-cywila, przed]
 summary: "Kategoria A, B, D lub E nie jest przypisana na zawsze. Kto i kiedy może wnioskować o jej zmianę, jaka dokumentacja medyczna jest potrzebna i jak wygląda procedura przed RWKL."
 ---

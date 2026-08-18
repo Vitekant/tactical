@@ -1,7 +1,7 @@
 ---
 title: "Przydział mobilizacyjny — komu jest nadawany i co z niego wynika"
 seo_title: "Przydział mobilizacyjny — komu i jakie obowiązki"
-date: 2026-07-31
+date: 2026-08-18
 sections: [dla-cywila]
 summary: "Imienne wyznaczenie rezerwisty na stanowisko na wypadek mobilizacji. Kto otrzymuje kartę mobilizacyjną, jakie obowiązki informacyjne nakłada w czasie pokoju i przed czym chroni."
 ---

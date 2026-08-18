@@ -1,7 +1,7 @@
 ---
 title: "Służba zastępcza — dla kogo, wniosek i przebieg"
 seo_title: "Służba zastępcza — dla kogo i jak złożyć wniosek"
-date: 2026-08-01
+date: 2026-08-18
 sections: [dla-cywila]
 summary: "Forma spełnienia obowiązku obrony dla osób, których przekonania religijne lub moralne nie pozwalają na służbę pod bronią. Przesłanki, termin złożenia wniosku i przebieg służby."
 ---

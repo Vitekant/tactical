@@ -1,7 +1,7 @@
 ---
 title: "Ćwiczenia wojskowe rezerwy — powołanie, obowiązki i odwołanie"
 seo_title: "Ćwiczenia wojskowe rezerwy — wezwanie i odwołanie"
-date: 2026-08-02
+date: 2026-08-18
 sections: [dla-cywila]
 summary: "Kto może otrzymać kartę powołania na ćwiczenia, jakie obowiązki nakłada jej odbiór, jak wnieść odwołanie w terminie 14 dni oraz co grozi za nieusprawiedliwione niestawiennictwo."
 ---
