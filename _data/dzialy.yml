@@ -48,6 +48,10 @@
       page: sily-zbrojne-karne-dyscyplinarne
       label: "Sprawy karne i dyscyplinarne"
       intro: "Sądownictwo wojskowe i postępowania dyscyplinarne żołnierzy zawodowych — przebieg spraw, prawa obwinionego i rola obrońcy."
+    - id: dla-cywila
+      page: sily-zbrojne-dla-cywila
+      label: "Dla cywila"
+      intro: "Obowiązki wojskowe osób niebędących żołnierzami: zmiana kategorii zdolności, ćwiczenia rezerwy, służba zastępcza, przydział mobilizacyjny i świadczenia na rzecz obrony."
 
 - id: sluzby-mundurowe
   label: "Służby mundurowe"

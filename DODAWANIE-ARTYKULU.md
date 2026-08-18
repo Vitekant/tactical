@@ -112,6 +112,7 @@ wpisać dział najlepiej pasujący do tematu.
 | `w-trakcie` | W trakcie służby |
 | `po-zakonczeniu` | Po zakończeniu służby |
 | `karne-dyscyplinarne` | Sprawy karne i dyscyplinarne |
+| `dla-cywila` | Dla cywila (obowiązki wojskowe osób niebędących żołnierzami) |
 
 **Służby mundurowe**
 

@@ -32,7 +32,7 @@ przy każdym pushu na `main`. Nie trzeba nic instalować lokalnie.
 
 | Gałąź              | Podział wg  | Działy                                                                            |
 |--------------------|-------------|-----------------------------------------------------------------------------------|
-| `sily-zbrojne`     | etap służby | `przed`, `w-trakcie`, `po-zakonczeniu`, `karne-dyscyplinarne`                     |
+| `sily-zbrojne`     | etap służby | `przed`, `w-trakcie`, `po-zakonczeniu`, `karne-dyscyplinarne`, `dla-cywila`       |
 | `sluzby-mundurowe` | formacja    | `policja`, `straz-graniczna`, `sluzba-wiezienna`, `skw-sww`, `abw`, `inne`        |
 
 **Artykuł podaje tylko działy**, np. `sections: [w-trakcie, policja]`.
