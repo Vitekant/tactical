@@ -1,3 +1,5 @@
 _site/
 .jekyll-cache/
 .jekyll-metadata
+# lokalny katalog testowego builda
+_site_test/

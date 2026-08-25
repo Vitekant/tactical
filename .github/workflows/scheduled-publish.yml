@@ -1,0 +1,58 @@
+# =====================================================================
+# Publikacja z harmonogramem
+# ---------------------------------------------------------------------
+# GitHub Pages przebudowuje strone tylko wtedy, gdy cos sie do niej
+# wypchnie. Artykul z przyszla data (future: false w _config.yml) sam
+# by sie wiec nie pojawil - ten workflow raz na dobe buduje strone od
+# nowa, dzieki czemu zaplanowane teksty wchodza o czasie.
+#
+# Mozna go tez uruchomic recznie: Actions -> "Publikacja zaplanowanych
+# artykulow" -> Run workflow (przydatne, gdy cos ma wejsc natychmiast).
+# =====================================================================
+name: Publikacja zaplanowanych artykulow
+
+on:
+  schedule:
+    # 05:00 UTC = 7:00 czasu polskiego latem, 6:00 zima.
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Nie przerywaj wdrozenia, ktore juz trwa.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Build
+        # JEKYLL_ENV=production wlacza pelna konfiguracje produkcyjna.
+        # base_path pochodzi z kroku "pages" wyzej - dla wlasnej domeny
+        # (CNAME) jest pusty, dla adresu *.github.io zawiera podkatalog.
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

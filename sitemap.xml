@@ -1,0 +1,49 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+{% comment %}
+=====================================================================
+Mapa strony — nadpisanie szablonu z wtyczki jekyll-sitemap.
+---------------------------------------------------------------------
+Powod: wtyczka wypisuje WSZYSTKIE artykuly z kolekcji, takze te
+z data z przyszlosci. Przy ustawieniu future: false takie artykuly
+nie maja jeszcze swojej strony, wiec w mapie ladowal adres dajacy
+blad 404 — a Google traktuje to jako blad mapy strony.
+
+Roznica wobec oryginalu: artykuly z data pozniejsza niz dzien
+budowania sa pomijane (patrz zmienna 'teraz' i warunek w petli).
+Pola doc.published nie da sie tu uzyc - Liquid go nie widzi.
+Reszta pliku jest wierna wtyczce. Przy jej aktualizacji warto
+porownac z /usr/gem/gems/jekyll-sitemap-*/lib/sitemap.xml.
+=====================================================================
+{% endcomment %}
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign teraz = site.time | date: '%Y-%m-%d' %}
+  {% assign collections = site.collections | where_exp:'collection','collection.output != false' %}
+  {% for collection in collections %}
+    {% assign docs = collection.docs | where_exp:'doc','doc.sitemap != false' %}
+    {% for doc in docs %}
+      {% assign data_artykulu = doc.date | date: '%Y-%m-%d' %}
+      {% if data_artykulu == nil or data_artykulu <= teraz %}
+      <url>
+        <loc>{{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
+        {% if doc.last_modified_at or doc.date %}
+          <lastmod>{{ doc.last_modified_at | default: doc.date | date_to_xmlschema }}</lastmod>
+        {% endif %}
+      </url>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% assign pages = site.html_pages | where_exp:'doc','doc.sitemap != false' | where_exp:'doc','doc.url != "/404.html"' %}
+  {% for page in pages %}
+    <url>
+      <loc>{{ page.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
+      {% if page.last_modified_at %}
+        <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+      {% endif %}
+    </url>
+  {% endfor %}
+</urlset>

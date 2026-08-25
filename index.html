@@ -80,7 +80,8 @@ title: "Prawo Mundurowych — poradnik prawny dla żołnierzy i funkcjonariuszy"
       </div>
 
       <div class="home-side">
-        {%- assign latest = site.artykuly | sort: "date" | reverse -%}
+        {%- include opublikowane.html -%}
+        {%- assign latest = opublikowane | sort: "date" | reverse -%}
         <aside class="side-list">
           <h2>Najnowsze artykuły</h2>
           <div>

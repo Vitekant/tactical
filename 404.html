@@ -27,7 +27,8 @@ sitemap: false
 
   <div class="wrap listing-grid">
     <div class="article-list">
-      {%- assign latest = site.artykuly | sort: "date" | reverse -%}
+      {%- include opublikowane.html -%}
+      {%- assign latest = opublikowane | sort: "date" | reverse -%}
       {%- for a in latest limit: 5 %}
       <article>
         <h2><a href="{{ a.url | relative_url }}">{{ a.title }}</a></h2>
@@ -49,7 +50,7 @@ sitemap: false
         {%- for b in site.data.dzialy -%}
           {%- for s in b.sections %}
           {%- assign count = 0 -%}
-          {%- for a in site.artykuly -%}
+          {%- for a in opublikowane -%}
             {%- if a.sections contains s.id -%}{%- assign count = count | plus: 1 -%}{%- endif -%}
           {%- endfor -%}
           {%- if count == 1 %}{% assign word = "artykuł" %}{% elsif count >= 2 and count <= 4 %}{% assign word = "artykuły" %}{% else %}{% assign word = "artykułów" %}{% endif %}

@@ -136,7 +136,8 @@
         {%- endcomment -%}
         {%- if primary %}
           {%- assign siblings = "" | split: "" -%}
-          {%- for a in site.artykuly -%}
+          {%- include opublikowane.html -%}
+          {%- for a in opublikowane -%}
             {%- if a.sections contains primary.id -%}
               {%- assign siblings = siblings | push: a -%}
             {%- endif -%}
@@ -161,7 +162,7 @@
             {%- assign branch_ids = "" | split: "" -%}
             {%- for s in primary_branch.sections -%}{%- assign branch_ids = branch_ids | push: s.id -%}{%- endfor -%}
             {%- assign related = "" | split: "" -%}
-            {%- for a in site.artykuly -%}
+            {%- for a in opublikowane -%}
               {%- if a.url != page.url -%}
                 {%- assign hit = false -%}
                 {%- for sid in a.sections -%}

@@ -130,6 +130,30 @@ wpisać dział najlepiej pasujący do tematu.
 
 ---
 
+## Publikacja z wyprzedzeniem (harmonogram)
+
+Artykuł można przygotować dziś, a opublikować w wybranym dniu.
+Wystarczy wpisać **przyszłą datę** w polu `date`:
+
+```yaml
+date: 2026-09-15
+```
+
+Taki artykuł można spokojnie wypchnąć do repozytorium — **do 15 września
+nie będzie widoczny na stronie**. Nie pojawi się w menu, na listach
+działów ani w mapie strony. Wejdzie sam, rano w dniu wskazanym w dacie.
+
+Jak to działa: w `_config.yml` ustawione jest `future: false`, a raz na
+dobę (7:00) automat GitHub Actions przebudowuje stronę i wpuszcza to,
+co dojrzało.
+
+**Chcesz opublikować coś od razu, nie czekając do rana?**
+Actions → „Publikacja zaplanowanych artykulow" → *Run workflow*.
+
+**Chcesz przesunąć termin?** Zmień datę i wypchnij ponownie.
+
+---
+
 ## Formatowanie treści (Markdown)
 
 | Zapis | Efekt |

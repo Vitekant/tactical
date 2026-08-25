@@ -27,6 +27,22 @@ preview: false
 
 markdown: kramdown
 
+# =====================================================================
+# Publikacja z harmonogramem
+# ---------------------------------------------------------------------
+# future: false  =  artykul z data z PRZYSZLOSCI nie trafia na strone.
+# Pojawi sie sam, gdy ta data nadejdzie.
+#
+# Uwaga: GitHub Pages przebudowuje strone tylko przy pushu, wiec sama
+# data nie wystarczy. Przebudowe raz na dobe wymusza workflow
+# .github/workflows/scheduled-publish.yml (codziennie 7:00).
+#
+# Jak zaplanowac artykul: ustaw w nim przyszla date, np.
+#     date: 2026-09-01
+# i wypchnij normalnie. Do 1 wrzesnia bedzie niewidoczny.
+# =====================================================================
+future: false
+
 # jekyll-sitemap generuje /sitemap.xml automatycznie z opublikowanych stron,
 # dzięki czemu nie trzeba go już utrzymywać ręcznie.
 plugins:
@@ -38,6 +54,9 @@ exclude:
   - DODAWANIE-ARTYKULU.md
   - .gitignore
   - kategorie.json   # ściąga dla autora, nie część serwisu
+  - Gemfile          # tylko do budowania w GitHub Actions
+  - Gemfile.lock
+  - _site_test       # lokalny katalog testowy
 
 # ----- Kolekcja artykułów -----
 # Pliki leżą w _artykuly/, a trafiają pod /artykuly/<slug>.html — czyli

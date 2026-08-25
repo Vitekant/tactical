@@ -1,0 +1,24 @@
+{%- comment -%}
+=====================================================================
+Lista opublikowanych artykulow  ->  zmienna {{ opublikowane }}
+---------------------------------------------------------------------
+Uzywac ZAMIAST site.artykuly wszedzie tam, gdzie budujemy linki
+albo listy widoczne dla czytelnika.
+
+Powod: przy ustawieniu future: false artykul z data z przyszlosci
+nie dostaje wlasnej strony, ale NADAL siedzi w site.artykuly.
+Linkowanie do niego dawaloby blad 404 az do dnia publikacji.
+
+Uzycie:
+    {%- include opublikowane.html -%}
+    {%- for a in opublikowane -%} ... {%- endfor -%}
+=====================================================================
+{%- endcomment -%}
+{%- assign dzis = site.time | date: '%Y-%m-%d' -%}
+{%- assign opublikowane = '' | split: '' -%}
+{%- for a in site.artykuly -%}
+  {%- assign data_a = a.date | date: '%Y-%m-%d' -%}
+  {%- if data_a <= dzis -%}
+    {%- assign opublikowane = opublikowane | push: a -%}
+  {%- endif -%}
+{%- endfor -%}

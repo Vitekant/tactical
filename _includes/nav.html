@@ -19,9 +19,10 @@
           <a href="{{ '/dzialy/' | append: branch.page | append: '.html' | relative_url }}"
              aria-haspopup="true" aria-expanded="false">{{ branch.label }}</a>
           <div class="dropdown">
+            {%- include opublikowane.html -%}
             {%- for section in branch.sections %}
               {%- assign count = 0 -%}
-              {%- for a in site.artykuly -%}
+              {%- for a in opublikowane -%}
                 {%- if a.sections contains section.id -%}{%- assign count = count | plus: 1 -%}{%- endif -%}
               {%- endfor -%}
             <a href="{{ '/dzialy/' | append: section.page | append: '.html' | relative_url }}">{{ section.label }}<span class="dropdown-count">{{ count }}</span></a>

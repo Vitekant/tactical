@@ -20,15 +20,16 @@
 {%- endfor -%}
 
 {%- comment -%} Artykuły: dla działu — te z jego id; dla gałęzi — z dowolnego jej działu. {%- endcomment -%}
+{%- include opublikowane.html -%}
 {%- assign items = "" | split: "" -%}
 {%- if cur_section -%}
-  {%- for a in site.artykuly -%}
+  {%- for a in opublikowane -%}
     {%- if a.sections contains cur_section.id -%}{%- assign items = items | push: a -%}{%- endif -%}
   {%- endfor -%}
 {%- else -%}
   {%- assign branch_ids = "" | split: "" -%}
   {%- for s in cur_branch.sections -%}{%- assign branch_ids = branch_ids | push: s.id -%}{%- endfor -%}
-  {%- for a in site.artykuly -%}
+  {%- for a in opublikowane -%}
     {%- assign hit = false -%}
     {%- for sid in a.sections -%}
       {%- if branch_ids contains sid -%}{%- assign hit = true -%}{%- endif -%}
@@ -165,7 +166,7 @@
       <ul>
         {%- for s in cur_branch.sections %}
           {%- assign count = 0 -%}
-          {%- for a in site.artykuly -%}
+          {%- for a in opublikowane -%}
             {%- if a.sections contains s.id -%}{%- assign count = count | plus: 1 -%}{%- endif -%}
           {%- endfor -%}
           {%- if count == 1 %}{% assign word = "artykuł" %}{% elsif count >= 2 and count <= 4 %}{% assign word = "artykuły" %}{% else %}{% assign word = "artykułów" %}{% endif -%}
