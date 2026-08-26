@@ -1,12 +1,12 @@
 # =====================================================================
-# Zaleznosci potrzebne WYLACZNIE do budowania strony w GitHub Actions
-# (workflow .github/workflows/scheduled-publish.yml).
+# Zaleznosci do budowania serwisu LOKALNIE (np. do testow przed pushem).
 #
-# Gem "github-pages" ustawia dokladnie te wersje Jekylla i wtyczek,
-# ktorych uzywa sam GitHub Pages - dzieki temu build z harmonogramu
-# daje ten sam wynik co zwykly build po pushu.
+# Gem "github-pages" przypina dokladnie te wersje Jekylla i wtyczek,
+# ktorych uzywa GitHub Pages, wiec lokalny build daje ten sam wynik
+# co ten na serwerze.
 #
-# Do dodawania artykulow ten plik nie jest potrzebny.
+# Do dodawania artykulow ten plik nie jest potrzebny - wystarczy
+# wgrac plik .md przez strone GitHuba.
 # =====================================================================
 source "https://rubygems.org"
 

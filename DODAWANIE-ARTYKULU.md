@@ -144,8 +144,9 @@ nie będzie widoczny na stronie**. Nie pojawi się w menu, na listach
 działów ani w mapie strony. Wejdzie sam, rano w dniu wskazanym w dacie.
 
 Jak to działa: w `_config.yml` ustawione jest `future: false`, a raz na
-dobę (7:00) automat GitHub Actions przebudowuje stronę i wpuszcza to,
-co dojrzało.
+dobę (ok. 7:10) automat zamawia u GitHuba przebudowę strony i wpuszcza
+to, co dojrzało. Godzina bywa orientacyjna — GitHub uruchamia zadania
+cykliczne z niewielkim opóźnieniem, zwykle kilku–kilkunastominutowym.
 
 **Chcesz opublikować coś od razu, nie czekając do rana?**
 Actions → „Publikacja zaplanowanych artykulow" → *Run workflow*.

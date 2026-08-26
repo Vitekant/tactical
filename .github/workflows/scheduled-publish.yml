@@ -1,58 +1,61 @@
 # =====================================================================
-# Publikacja z harmonogramem
+# Publikacja zaplanowanych artykulow
 # ---------------------------------------------------------------------
-# GitHub Pages przebudowuje strone tylko wtedy, gdy cos sie do niej
-# wypchnie. Artykul z przyszla data (future: false w _config.yml) sam
-# by sie wiec nie pojawil - ten workflow raz na dobe buduje strone od
-# nowa, dzieki czemu zaplanowane teksty wchodza o czasie.
+# Artykul z przyszla data (future: false w _config.yml) nie ma jeszcze
+# swojej strony. Pojawi sie dopiero przy kolejnym budowaniu serwisu,
+# a GitHub Pages buduje go normalnie tylko wtedy, gdy cos zostanie
+# wypchniete. Ten workflow raz na dobe prosi Pages o przebudowe.
 #
-# Mozna go tez uruchomic recznie: Actions -> "Publikacja zaplanowanych
-# artykulow" -> Run workflow (przydatne, gdy cos ma wejsc natychmiast).
+# Jak to robi: wysyla zadanie do API GitHuba
+#     POST /repos/{owner}/{repo}/pages/builds
+# Wedlug dokumentacji daje to "ten sam efekt co wypchniecie commita
+# na galaz domyslna, ale nie wymaga dodatkowego commita" - historia
+# repozytorium zostaje czysta, a ustawienia Pages bez zmian.
+#
+# Uwaga: NIE uzywamy actions/deploy-pages. Tamten sposob dziala tylko
+# wtedy, gdy w ustawieniach repo zrodlem Pages jest "GitHub Actions".
+# Tutaj zrodlem jest galaz main (tryb "legacy"), wiec wdrozeniem
+# zajmuje sie wbudowany builder GitHuba.
+#
+# Reczne uruchomienie (gdy cos ma wejsc natychmiast):
+#   Actions -> "Publikacja zaplanowanych artykulow" -> Run workflow
 # =====================================================================
 name: Publikacja zaplanowanych artykulow
 
 on:
   schedule:
-    # 05:00 UTC = 7:00 czasu polskiego latem, 6:00 zima.
-    - cron: '0 5 * * *'
+    # 05:10 UTC = 7:10 czasu polskiego latem, 6:10 zima.
+    # Pelne godziny sa u GitHuba mocno obciazone i uruchomienie potrafi
+    # sie opoznic, dlatego celujemy kilka minut po rownej godzinie.
+    - cron: '10 5 * * *'
   workflow_dispatch:
 
+# Do zadania przebudowy wystarczy wbudowany GITHUB_TOKEN z prawem
+# zapisu do Pages. Zaden token osobisty nie jest potrzebny.
 permissions:
-  contents: read
   pages: write
-  id-token: write
-
-# Nie przerywaj wdrozenia, ktore juz trwa.
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
-  build:
+  przebuduj:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-      - id: pages
-        uses: actions/configure-pages@v5
-      - name: Build
-        # JEKYLL_ENV=production wlacza pelna konfiguracje produkcyjna.
-        # base_path pochodzi z kroku "pages" wyzej - dla wlasnej domeny
-        # (CNAME) jest pusty, dla adresu *.github.io zawiera podkatalog.
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      - name: Popros GitHub Pages o przebudowe
         env:
-          JEKYLL_ENV: production
-      - uses: actions/upload-pages-artifact@v3
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          kod=$(curl -sS -o odpowiedz.json -w '%{http_code}' \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds")
 
-  deploy:
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          echo "Kod odpowiedzi: $kod"
+          cat odpowiedz.json
+
+          # 201 = zadanie przyjete i zakolejkowane.
+          if [ "$kod" != "201" ]; then
+            echo "::error::Nie udalo sie zlecic przebudowy (HTTP $kod)."
+            exit 1
+          fi
+          echo "Przebudowa zakolejkowana."
