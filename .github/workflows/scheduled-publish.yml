@@ -24,10 +24,23 @@ name: Publikacja zaplanowanych artykulow
 
 on:
   schedule:
-    # 05:10 UTC = 7:10 czasu polskiego latem, 6:10 zima.
-    # Pelne godziny sa u GitHuba mocno obciazone i uruchomienie potrafi
-    # sie opoznic, dlatego celujemy kilka minut po rownej godzinie.
-    - cron: '10 5 * * *'
+    # Co godzine, o 20 minut po.
+    #
+    # Dlaczego co godzine, a nie raz dziennie: GitHub NIE gwarantuje,
+    # ze zadanie cykliczne wystartuje o czasie. W dokumentacji pisze
+    # wprost, ze przy duzym obciazeniu uruchomienie moze sie opoznic,
+    # a czesc zadan "moze zostac porzucona". W praktyce na tym repo
+    # opoznienia siegaly od 5 do 12 godzin.
+    #
+    # Przy jednym uruchomieniu dziennie porzucony termin oznacza caly
+    # dzien bez publikacji i nikt sie o tym nie dowie, bo nic sie nie
+    # wywala. Przy uruchomieniu co godzine najgorszy przypadek to
+    # kilka godzin obsuwy zamiast doby.
+    #
+    # Nie generuje to kosztow: w repozytorium publicznym na zwyklych
+    # maszynach GitHuba Actions sa darmowe. Samo zadanie jest bezpieczne
+    # przy powtarzaniu - to tylko prosba o przebudowe strony.
+    - cron: '20 * * * *'
   workflow_dispatch:
 
 # Do zadania przebudowy wystarczy wbudowany GITHUB_TOKEN z prawem

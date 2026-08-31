@@ -141,15 +141,24 @@ date: 2026-09-15
 
 Taki artykuł można spokojnie wypchnąć do repozytorium — **do 15 września
 nie będzie widoczny na stronie**. Nie pojawi się w menu, na listach
-działów ani w mapie strony. Wejdzie sam, rano w dniu wskazanym w dacie.
+działów ani w mapie strony. Wejdzie sam, w dniu wskazanym w dacie.
 
-Jak to działa: w `_config.yml` ustawione jest `future: false`, a raz na
-dobę (ok. 7:10) automat zamawia u GitHuba przebudowę strony i wpuszcza
-to, co dojrzało. Godzina bywa orientacyjna — GitHub uruchamia zadania
-cykliczne z niewielkim opóźnieniem, zwykle kilku–kilkunastominutowym.
+Jak to działa: w `_config.yml` ustawione jest `future: false`, a automat
+(GitHub Actions) co godzinę prosi GitHuba o przebudowę strony i wpuszcza
+to, co dojrzało.
 
-**Chcesz opublikować coś od razu, nie czekając do rana?**
+**Artykuł pojawi się w ciągu kilku godzin od północy w dniu wskazanym
+w dacie — nie co do minuty.** GitHub nie gwarantuje punktualności zadań
+cyklicznych: przy dużym obciążeniu uruchomienie potrafi się opóźnić
+o kilka godzin. Dlatego automat chodzi co godzinę — żeby ewentualne
+opóźnienie kosztowało godziny, a nie cały dzień.
+
+Jeśli tekst ma się ukazać dokładnie o wyznaczonej porze, trzeba
+uruchomić publikację ręcznie (poniżej).
+
+**Chcesz opublikować coś od razu, nie czekając na automat?**
 Actions → „Publikacja zaplanowanych artykulow" → *Run workflow*.
+Strona przebuduje się w ciągu 1–2 minut.
 
 **Chcesz przesunąć termin?** Zmień datę i wypchnij ponownie.
 

@@ -34,8 +34,10 @@ markdown: kramdown
 # Pojawi sie sam, gdy ta data nadejdzie.
 #
 # Uwaga: GitHub Pages przebudowuje strone tylko przy pushu, wiec sama
-# data nie wystarczy. Przebudowe raz na dobe zamawia workflow
-# .github/workflows/scheduled-publish.yml (ok. 7:10 czasu polskiego).
+# data nie wystarczy. Przebudowe zamawia co godzine workflow
+# .github/workflows/scheduled-publish.yml. Artykul pojawia sie w ciagu
+# kilku godzin od polnocy - GitHub nie gwarantuje punktualnosci zadan
+# cyklicznych, wiec nie da sie wskazac konkretnej minuty.
 #
 # Jak zaplanowac artykul: ustaw w nim przyszla date, np.
 #     date: 2026-09-01
