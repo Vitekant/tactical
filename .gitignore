@@ -3,3 +3,6 @@ _site/
 .jekyll-metadata
 # lokalny katalog testowego builda
 _site_test/
+
+# katalog roboczy na materialy zrodlowe (nie czesc serwisu)
+tmp/

@@ -59,6 +59,7 @@ exclude:
   - Gemfile          # tylko do budowania lokalnego
   - Gemfile.lock
   - _site_test       # lokalny katalog testowy
+  - tmp              # materialy zrodlowe autora, nie czesc serwisu
 
 # ----- Kolekcja artykułów -----
 # Pliki leżą w _artykuly/, a trafiają pod /artykuly/<slug>.html — czyli
